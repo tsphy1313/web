@@ -320,7 +320,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
+      width: 80vw;
       height: 100vh;
       background: rgba(0, 0, 0, 0.4);
       display: none;
@@ -504,7 +504,7 @@
 
 
     .conference-list {
-      max-width: 900px;
+      max-width: 1200px;
       margin: auto;
       display: flex;
       flex-direction: column;
@@ -653,83 +653,83 @@
 
 
     @media (max-width: 768px) {
-  section {
-    padding: 20px 15px;
-  }
+    section {
+      padding: 20px 15px;
+    }
+  
+    .header-content h1 {
+      font-size: 24px;
+    }
+  
+    .header-content p {
+      font-size: 16px;
+    }
+  
+    .highlighted-name {
+      font-size: 24px;
+    }
+  
+    .intro-card,
+    .edu-card,
+    .slider-container,
+    .project-text,
+    .publication-list,
+    .conference-list {
+      width: 90vw;
+      padding: 20px;
+    }
 
-  .header-content h1 {
-    font-size: 24px;
+    .edu-card {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .edu-logo {
+      width: 70px;
+    }
+  
+    .arrow.left {
+      left: 10px;
+    }
+  
+    .arrow.right {
+      right: 10px;
+    }
+  
+    .skill {
+      padding: 10px;
+    }
+  
+    .skill-icon {
+      font-size: 30px;
+    }
+  
+    .skill-name {
+      font-size: 16px;
+    }
+  
+    .voluntary-card {
+      width: 180px;
+    }
+  
+    .voluntary-card h3 {
+      font-size: 16px;
+    }
+  
+    .voluntary-card p {
+      font-size: 12px;
+    }
+  
+    .publication-list p,
+    .publication-list a,
+    .conference-item p {
+      font-size: 16px;
+    }
+  
+    .contact-icons a {
+      font-size: 24px;
+    }
   }
-
-  .header-content p {
-    font-size: 16px;
-  }
-
-  .highlighted-name {
-    font-size: 28px;
-  }
-
-  .intro-card,
-  .edu-card,
-  .slider-container,
-  .project-text,
-  .publication-list,
-  .conference-list {
-    width: 95vw;
-    padding: 20px;
-  }
-
-  .edu-card {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .edu-logo {
-    width: 70px;
-  }
-
-  .arrow.left {
-    left: 10px;
-  }
-
-  .arrow.right {
-    right: 10px;
-  }
-
-  .skill {
-    padding: 10px;
-  }
-
-  .skill-icon {
-    font-size: 30px;
-  }
-
-  .skill-name {
-    font-size: 16px;
-  }
-
-  .voluntary-card {
-    width: 180px;
-  }
-
-  .voluntary-card h3 {
-    font-size: 16px;
-  }
-
-  .voluntary-card p {
-    font-size: 12px;
-  }
-
-  .publication-list p,
-  .publication-list a,
-  .conference-item p {
-    font-size: 16px;
-  }
-
-  .contact-icons a {
-    font-size: 24px;
-  }
-}
 
 
 /* Fix width mismatch on all section backgrounds */
@@ -756,6 +756,28 @@
     padding: 40px 10px;
   }
 }
+
+    @media (max-width: 768px) {
+  .slider-container {
+    width: 100vw;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .slide {
+    min-width: 100%;
+    display: block; /* or flex-shrink: 0 */
+  }
+
+  .slide img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+}
+
 
 
 
