@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <title>Topu Saha</title>   <!-- text for web tab -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- reload page at the top -->
+  <script>
+    if (location.hash) {
+      history.replaceState(null, null, ' ');
+    }
+  </script>
+  
+  <style>
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #ecebeb;
+        color: #333;
+        scroll-behavior: smooth;
+    }
+
+    .hero-header {
+        position: sticky;
+        height: 100px;
+        background: url('banner.jpg') no-repeat center center/cover;
+        color: white;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        overflow: hidden;
+        padding: 60px 20px;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    .header-content h1 {
+        font-size: 32px;
+        margin: 0;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    .header-content p {
+        font-size: 20px;
+        margin-top: 10px;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .menu-icon {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: 30px;
+        height: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .menu-icon span {
+        height: 4px;
+        width: 100%;
+        background-color: white;
+        border-radius: 2px;
+    }
+
+    .natural-menu {
+        display: none;
+        position: fixed;
+        top: 50px;
+        left: 5px;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(6px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        padding: 15px 20px;
+        border-radius: 10px;
+        z-index: 1001;
+    }
+
+    .natural-menu a {
+        display: flex;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        margin: 10px 0;
+        font-weight: 500;
+        font-size: 16px;
+        gap: 12px;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: color 0.2s ease;
+    }
+
+    .natural-menu a:hover {
+        color: #13cc9b;
+        text-decoration: none;
+    }
+    
+    section {
+        padding: 20px 50px;
+    }
+
+    .light {
+        background-color: #e4e0e0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .white {
+        background-color: #ecebeb;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #333; /* dark gray for softer look */
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    i {
+        font-size: 18px;
+    }
+
+    a {
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #0066cc;
+        margin-bottom: 20px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul, ol, li {
+        font-family: 'Inter', sans-serif;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #333;
+    }
+
+    .intro-card {
+        width: 80vw;
+        max-width: 1200px;
+        margin: 20px auto;
+        background: rgba(255, 255, 255, 0.1); /* transparent glassy background */
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        padding: 30px;
+        text-align: left;
+        transition: transform 0.3s ease;
+    }
+
+    .intro-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .education-list {
+        list-style-type: none; /* remove bullets */
+        padding: 0;
+        margin: 0;
+    }
+
+    .education-list li {
+        margin-bottom: 20px;
+    }
+
+    .edu-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80vw;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 20px 30px;
+        gap: 40px;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        transition: transform 0.3s ease;
+    }
+
+    .edu-text {
+        flex: 1;
+        text-align: left;
+    }
+
+    .edu-degree {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .edu-logo-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    .edu-logo {
+        width: 100px;
+        height: auto;
+    }
+
+    .edu-timeframe {
+        font-size: 14px;
+        color: #666;
+        text-align: center;
+    }
+
+    .edu-text a {
+        color: #0066cc;
+        text-decoration: none;
+    }
+
+    .edu-text a:hover {
+        color: #066e4c;
+    }
+
+    /* Responsive stacking for mobile */
+    @media (max-width: 768px) {
+    .edu-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .edu-logo-box {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 15px;
+    }
+
+    .edu-logo {
+        width: 60px;
+    }
+
+    .edu-timeframe {
+        text-align: left;
+    }
+    }
+
+    .slider-container {
+      overflow: hidden;
+      width: 80vw;
+      max-width: 900px;
+      margin: auto;
+      border-radius: 12px;
+      position: relative;
+      padding: 0;
+     }
+
+    .slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+        min-width: 100%;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        cursor: pointer;
+    }
+
+    .slide img {
+        width: 100%;
+        display: block;
+        /* height: 460px; */
+        object-fit: contain;
+    }
+
+    .click-note {
+      position: absolute;
+      bottom: 2px;
+      right: 55px;
+      font-size: 8px;
+      font-weight: 500;
+      color: rgb(20, 20, 20);
+      font-style: italic;
+      pointer-events: none; /* lets clicks pass through */
+    }
+
+
+
+
+    /* --- POPUP OVERLAY --- */
+    #detailCard {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    /* --- POPUP CARD --- */
+    #detailCard .popup-card {
+      background: #f1ebeb;
+      padding: 20px 30px;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    #cardTitle {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #222;
+    }
+
+    #cardDescription {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    #detailCard button {
+      padding: 8px 16px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.25);
+        color: white;
+        border: none;
+        width: 30px;  /* fixed width */
+        height: 30px; /* fixed height */
+        font-size: 12px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 999;
+    }
+
+    .arrow:hover {
+        background: rgba(15, 14, 14, 0.7); /* lighter background on hover */
+        color: white; /* optional: make the arrow darker if you want */
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* soft glow around the button */
+        transform: translateY(-50%) scale(1.1); /* make it slightly bigger */
+    }
+
+    .left {
+        left: 50px;
+    }
+
+    .right {
+        right: 50px;
+    }
+
+    .dots {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .dots span {
+        height: 8px;
+        width: 8px;
+        margin: 0 4px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .dots .active {
+        background-color: #333;
+    }
+
+
+    .project-text {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .skill {
+      background: white;
+      padding: 15px;
+      padding-bottom: 0;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .skill:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-icon {
+      font-size: 40px;
+      /* margin-bottom: 10px; */
+    }
+
+    .skill-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+
+    .publication-list {
+      max-width: 900px;
+      margin: auto;
+      padding: 0 1rem;
+      text-align: justify;
+    }
+
+    .publication-list p {
+      margin-bottom: 1rem;
+      line-height: 1.5;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .publication-list a {
+      text-decoration: none;
+      color: #0077b5;
+      font-size: 20px;
+      margin-left: 4px;
+    }
+
+    .publication-list a:hover {
+      color: #00487c;
+    }
+
+    .author-name {
+      font-weight: 550;
+      color: #222;
+    }
+
+    .paper-title {
+      font-weight: 500;
+      color: #333;
+    }
+
+
+    .conference-list {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      /* padding: 0 1rem; */
+    }
+
+    .conference-item {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .conference-item h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .conference-item p {
+      margin: 0.25rem 0;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+
+    .voluntary-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 20px;
+      position: relative;
+      scrollbar-width: none;
+    }
+
+    .voluntary-scroll::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
+
+    .voluntary-grid {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .voluntary-card {
+      flex: 0 0 auto;
+      width: 220px; /* Fixed consistent width */
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .voluntary-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .voluntary-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .voluntary-card p {
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* === Optional: Padding on first and last cards === */
+    .voluntary-card:first-child {
+      margin-left: 10px;
+    }
+
+    .voluntary-card:last-child {
+      margin-right: 10px;
+    }
+
+
+    @keyframes scrollSlider {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .contact-icons a {
+      font-size: 30px;
+      color: #333;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .contact-icons a:hover {
+      color: #0077b5; /* LinkedIn blue as hover */
+      transform: scale(1.5);
+    }
+
+    .highlighted-name {
+      font-size: 38px;
+      font-weight: 800;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+      margin-bottom: 20px;
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+
+    .typewriter-container {
+      font-size: 18px;
+      font-weight: 400;
+      color: #fff;
+      text-align: center;
+      min-height: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+   
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    #intro {
+      padding-top: 20px;
+    }
+
+
+    @media (max-width: 768px) {
+  section {
+    padding: 20px 15px;
+  }
+
+  .header-content h1 {
+    font-size: 24px;
+  }
+
+  .header-content p {
+    font-size: 16px;
+  }
+
+  .highlighted-name {
+    font-size: 28px;
+  }
+
+  .intro-card,
+  .edu-card,
+  .slider-container,
+  .project-text,
+  .publication-list,
+  .conference-list {
+    width: 95vw;
+    padding: 20px;
+  }
+
+  .edu-card {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .edu-logo {
+    width: 70px;
+  }
+
+  .arrow.left {
+    left: 10px;
+  }
+
+  .arrow.right {
+    right: 10px;
+  }
+
+  .skill {
+    padding: 10px;
+  }
+
+  .skill-icon {
+    font-size: 30px;
+  }
+
+  .skill-name {
+    font-size: 16px;
+  }
+
+  .voluntary-card {
+    width: 180px;
+  }
+
+  .voluntary-card h3 {
+    font-size: 16px;
+  }
+
+  .voluntary-card p {
+    font-size: 12px;
+  }
+
+  .publication-list p,
+  .publication-list a,
+  .conference-item p {
+    font-size: 16px;
+  }
+
+  .contact-icons a {
+    font-size: 24px;
+  }
+}
+
+
+
+
+
+  </style>
+</head>
+
+
+
+<script>
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.style.height = "15px";
+      } else {
+        header.style.height = "100px"; // normal height
+      }
+    });
+</script>
+  
+<body>
+
+    
+<div class="natural-menu" id="menu">
+    <a href="#intro"><i class="fas fa-user"></i> Introduction</a>
+    <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
+    <a href="#experience"><i class="fas fa-briefcase"></i> Experience</a>
+    <a href="#experiment"><i class="fas fa-flask"></i> Research</a>
+    <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+    <a href="#publications"><i class="fas fa-book"></i> Publications</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+</div>
+
+
+<header class="hero-header">
+    <div class= "menu-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+        
+    <div class="header-content">
+        <h1 class="highlighted-name">Topu Saha</h1>
+        <div class="typewriter-container">
+            <span id="typewriter-text"></span>
+        </div>
+    </div>
+      
+</header>
+
+
+
+
+
+<!-- main body from here -->
+
+<section id="intro" class="white">
+  <h2>Introduction</h2>
+
+  <div class="intro-card">
+
+    <img src="pic01.jpg" alt="Intro" style="display: block; margin: 20px auto; max-width: 70%; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+
+    <p style="text-align: justify;">Topu Saha is a PhD candidate in Applied Physics, working in the field of Applied Optics and Remote Sensing to monitor atmospheric insects. 
+    He, along with other members of his research group, developed an autonomous Near-Infrared optical sensor system to detect insect activities
+    remotely, both in the laboratory and field conditions. His expertise includes evaluating the performance of different optical sensors, prototype designing for remote sensing, integration of
+    hardware and software for data acquisition, analyzing optical signals to retrieve different features, application of
+    machine learning techniques for classification, and statistical analysis of the dataset to study different morphological properties and
+    population dynamics of flying insects.</p> 
+    <p style="text-align: justify;">Mr. Saha is highly dedicated to conducting impactful and innovative research, his aim is to explore various fields of advanced
+    remote sensing technology to contribute to a more sustainable and resilient future for mankind.</p>
+
+    </div>
+
+</section>
+
+
+
+<section id="education" class="light">
+  <h2>Education</h2>
+
+  <ul class="education-list">
+  
+    <li>
+      <div class="edu-card">
+        
+        <div class="edu-text">
+          <b class="edu-degree">Doctor of Philosophy (PhD) in Applied Physics</b>
+          <br> Department of Physics
+          <br> New Jersey Institute of Technology <a href="https://www.njit.edu/" target="_blank" title="Open Link">🔗</a>
+          <br> CGPA: <b>3.625</b> on a scale of 4.00
+          <br> Credit Earned: 36.00 | <a href="https://drive.google.com/drive/folders/14TNsOZOjiy2Q49KI5XeG1lzRKqsRAL-K?usp=sharing" target="_blank">Course Syllabus</a>
+          <br> Selected Courses: Classical Mechanics, Quantum Mechanics, Statistical Mechanics, 
+          Classical Electrodynamics, Applied Statistics, Machine Learning, Intelligent Sensing
+          <br> Title of PhD Dissertation: Network of Infrared Optical Sensors to Monitor Flying Insects
+        </div>
+  
+        <div class="edu-logo-box">
+          <img src="njit_logo.png" alt="NJIT Logo" class="edu-logo">
+          <div class="edu-timeframe">(September 2021 - May 2026)</div>
+        </div>
+  
+      </div>
+    </li>
+  
+    <li>
+      <div class="edu-card">
+        
+        <div class="edu-text">
+          <b class="edu-degree">Bachelor of Science (B.Sc.) in Physics</b>
+          <br> Department of Physics
+          <br> Jashore University of Science and Technology <a href="https://just.edu.bd/" target="_blank" title="Open Link">🔗</a>
+          <br> CGPA: <b>3.81</b> on a scale of 4.00
+          <br> Credit Earned: 164.00 | <a href="https://drive.google.com/file/d/1bYe-AfCX8arTTEB7s3uYlLnrD48GykUN/view?usp=sharing" target="_blank">Course Syllabus</a>
+          <br> Selected Courses: Optics, Differential Equations, Methods of Mathematical Physics, 
+          Semiconductor and Electronics Devices, Pulse and Digital Electronics, Crystallography and Spectroscopy
+          <br> Title of UG Project: Study the Morphology of Organic Molecules on Substrate by Analytical Microscopy <a href="https://drive.google.com/file/d/11EwEt5ZimlcJsyLWErPYIZzQStNQMqou/view?usp=sharing" target="_blank" title="Open Link">🔗</a>
+        </div>
+  
+        <div class="edu-logo-box">
+          <img src="just_logo.png" alt="JUST Logo" class="edu-logo">
+          <div class="edu-timeframe">(January 2016 - March 2020)</div>
+        </div>
+  
+      </div>
+    </li>
+  
+  </ul>
+  
+</section>
+
+
+
+<section id="experience" class="white">
+  <h2>Experience</h2>
+
+  <ul class="education-list">
+  
+    <li>
+      <div class="edu-card">
+        
+        <div class="edu-text">
+          <b class="edu-degree">Graduate Teaching Assistant </b><i> (September 2021 - August 2025)</i>
+          <br> Department of Physics
+          <br> New Jersey Institute of Technology <a href="https://www.njit.edu/" target="_blank" title="Open Link">🔗</a>
+          <br> Responsibilities: Lab Instructor, Grader, Proctor, Mentor
+          <br> Course conducted:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;1. Physics I: General Physics Lab (<a href="https://drive.google.com/file/d/1t2EX_nRn3s6KTvfeGiteJD4zMDSS8dvG/view?usp=sharing" target="_blank">Syllabus</a>)
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;2. Physics II: Electricity and Magnetism Lab (<a href="https://drive.google.com/file/d/1TpG82eWlF1PCwraB196Vh4OCRDQIHrmJ/view?usp=sharing" target="_blank">Syllabus</a>)
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;3. Physics III: Modern Physics Lab (<a href="https://drive.google.com/file/d/1aSaGRSEjQtpzk-LcfQt2N6GF2NgoZgw1/view?usp=sharing" target="_blank">Syllabus</a>)
+            
+      </div>
+    </li>
+  
+    <li>
+      <div class="edu-card">
+        
+        <div class="edu-text">
+          <b class="edu-degree">Graduate Research Assistant </b> <i> (June 2022 - August 2022)</i>
+          <br> Project: Monitoring mosquito eco-systems and vector-control strategies using a stand-off optical sensor <a href="https://reporter.nih.gov/search/DLo9x-vB_0uWwJf9RbxWBw/project-details/10215105" target="_blank" title="Open Link">🔗</a>
+        <br> Funding Organization: National Institute of Allergy and Infectious Diseases (NIH)
+        <br> Advisor: <a href="https://people.njit.edu/profile/bthomas" target="_blank">Dr. Benjamin Thomas</a>, Applied Optics and Remote Sensing Laboratory, NJIT
+        <br> Responsibilities: Conducting research to meet project goals, developing and validating experimental methodology, data management, writing technical reports, mentoring undergraduate researchers
+        </div>
+  
+      </div>
+    </li>
+  
+  </ul>
+  
+</section>
+
+
+
+<section id="experiment" class="light">
+  <h2>Research</h2>
+
+  <div class="slider-container">
+
+    <div class="slider" id="slider">
+
+      <div class="slide"  onclick="showDetails(0)">
+        <img src="field.pdf" alt="">
+        <div class="click-note">*Click image for details</div>
+      </div>
+
+      <div class="slide"  onclick="showDetails(1)">
+        <img src="eBoss.pdf" alt="">
+        <div class="click-note">*Click image for details</div>
+      </div>
+
+      <div class="slide"  onclick="showDetails(2)">
+        <img src="SeBOSS.pdf" alt="">
+        <div class="click-note">*Click image for details</div>
+      </div>
+
+      <div class="slide"  onclick="showDetails(3)">
+        <img src="noise.pdf" alt="">
+        <div class="click-note">*Click image for details</div>
+      </div>
+
+      <div class="slide"  onclick="showDetails(4)">
+        <img src="event_select.pdf" alt="">
+        <div class="click-note">*Click image for details</div>
+      </div>
+
+      <div class="slide"  onclick="showDetails(5)">
+        <img src="no_insect.pdf" alt="">
+        <div class="click-note">*Click image for details</div>
+      </div>
+
+      <div class="slide"  onclick="showDetails(6)">
+        <img src="m_ad_bd.pdf" alt="">
+        <div class="click-note">*Click image for details</div>
+      </div>
+
+      <div class="slide"  onclick="showDetails(7)">
+        <img src="weather.pdf" alt="">
+        <div class="click-note">*Click image for details</div>
+      </div>
+
+    </div>
+    
+  
+    <!-- Arrows -->
+    <button class="arrow left" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="arrow right" onclick="changeSlide(1)">&#10095;</button>
+  
+    <!-- Dots -->
+    <div class="dots" id="dots"></div>
+
+    <!-- POPUP CARD -->
+    <div id="detailCard" onclick="hideDetails()">
+      <div class="popup-card" onclick="event.stopPropagation()">
+        <h3 id="cardTitle"></h3>
+        <p id="cardDescription"></p>
+        <button onclick="hideDetails()">Close</button>
+      </div>
+    </div>
+  
+  </div>  
+  
+  <br>
+
+  <div class="project-text">
+
+    <style>
+      h3 {
+        font-size: 23px;
+      }
+    </style>
+
+    <h3>Projects:</h3>
+
+    <ul>
+      <li>
+        <strong>Multi-sensor calibration to investigate the flight pattern of insects</strong>
+        <p style="font-size:0.9em;margin: 0;">
+          - Integrated camera and a single-pixel photodetector to simultaneously record data from a flying insect <br>
+          - Simulated insect flight pattern at different camera viewing angles <br>
+          - Predicted flight orientation of an insect from optical signals <br>
+        </p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <strong>Development of a fully-autonomous solar powered optical sensor system</strong>
+        <p style="font-size:0.9em;margin: 0;">
+          - Developed a compact, portable, and easily field-deployable optical sensor system <br>
+          - Designed a solar circuit to power sensing and control components for automated field operation <br>
+          - Implemented a real-time thresholding algorithm to detect insect flight signals <br>
+          - Implemented secure data transfer using SSH protocol for remote communication 
+        </p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <strong>UAV propeller characterization using frequency analysis of Lidar signals</strong>
+        <p style="font-size:0.9em;margin: 0;">
+          - Simulated LiDAR backscatter signals from drone rotor blades <br>
+          - Conducted controlled experiment to validate optical backscatter characteristics under real flight conditions <br>
+          - Applied FFT to analyze frequency components of LiDAR signals distorted by drone blade motion <br>
+        </p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <strong>Monitoring mosquito eco-systems and vector-control strategies using a stand-off optical sensor</strong>
+        <p style="font-size:0.9em;margin: 0;">
+          - Developed a stand-off optical sensor for continuous, non-invasive monitoring of flying insects <br>
+          - Validated multiple sensors to identify the most durable and optimal configuration for field deployment <br>
+          - Conducted over 25 months of field experiments to monitor insect activity patterns across seasons <br>
+          - Extracted different optical signatures of an insect and analyzed their response to varying environmental factors <br>
+          - Applied different ML models to classify and cluster insect species based on optical sensor data
+        </p>
+      </li>
+    </ul>
+
+
+  </div>
+  
+
+
+</section>
+
+
+
+<section id="skills" class="white">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+        
+      <div class="skill">
+        <div class="skill-icon">
+         <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" alt="MATLAB" style="width: 60px; height: 60px;">
+        </div>
+        <div class="skill-name">MATLAB</div>
+        <p style="font-size:12px">5+ years of experience, most scripts are written for data acquisition, signal processing and data analysis</p>
+      </div>
+
+      <div class="skill">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" style="width: 60px; height: 60px;">
+        </div>
+        <div class="skill-name">Python</div>
+        <p style="font-size:12px">3+ years of experience, useful libraries: numpy, pandas, scikit-learn, matplotlib, scipy, librosa, threading, paramiko </p>
+      </div>
+  
+      
+  
+      <div class="skill">
+        <div class="skill-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/8921/8921081.png" alt="Data Analysis" style="width: 60px; height: 60px;">
+        </div>
+        <div class="skill-name">Data Analysis</div>
+        <p style="font-size: 12px">Data analyzing, interpreting and visualization using different Python and MATLAB libraries</p>
+      </div>
+      
+  
+      <div class="skill">
+        <div class="skill-icon">
+            <img src="https://e7.pngegg.com/pngimages/712/334/png-clipart-analog-to-digital-converter-analog-signal-digital-to-analog-converter-microcontroller-digital-data-rmb-symbol-miscellaneous-blue-thumbnail.png" alt="Signal Processing" style="width: 60px; height: 60px; object-fit: contain;">
+        </div>
+        <div class="skill-name">Signal Processing</div>
+        <p style="font-size: 12px">Signal Preprocessing, Noise Filtering, SNR Analysis, Applying FFT, Feature Extraction</p>
+      </div>
+
+      <div class="skill">
+        <div class="skill-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/9423/9423110.png" alt="Image Analysis" style="width: 60px; height: 60px; object-fit: contain;">
+        </div>
+        <div class="skill-name">Image Analysis</div>
+        <p style="font-size: 12px">Image processing and motion detection using Python's OpenCV and PIL libraries </p>
+      </div>
+
+      <div class="skill">
+        <div class="skill-icon">
+          <img src="https://png.pngtree.com/png-vector/20230407/ourmid/pngtree-deep-learning-line-icon-vector-png-image_6688986.png" alt="Machine Learning" style="width: 60px; height: 60px; object-fit: contain;">
+        </div>
+        <div class="skill-name">Machine Learning</div>
+        <p style="font-size:12px;">Supervised and unsupervised learning for decision-making</p>
+      </div>
+
+      <div class="skill">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" style="width: 60px; height: 60px; object-fit: contain;">
+        </div>
+        <div class="skill-name">VS Code</div>
+        <p style="font-size:12px;">Efficient coding and debugging using Visual Studio Code editor</p>
+      </div>
+
+      <div class="skill">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg" alt="Raspberry Pi" style="width: 60px; height: 60px;">
+        </div>
+        <div class="skill-name">Raspberry Pi</div>
+        <p style="font-size:12px;">Software and hardware integration with acquisition system for an autonomous sensor development</p>
+      </div>
+
+      <div class="skill">
+        <div class="skill-icon">
+            <img src="https://downloadly.ir/wp-content/uploads/2023/08/RealVNC.png" alt="VNC" style="width: 60px; height: 60px; object-fit: contain;">
+        </div>
+        <div class="skill-name">VNC</div>
+        <p style="font-size:12px;">Experience in setting up VNC servers and clients for remote control of Linux-based systems</p>
+      </div>
+      
+      <div class="skill">
+        <div class="skill-icon">
+            <img src="https://api-reader.tinkercad.com/api/designs/9CWFBMYFhxz/images/cbdy6sTzSjf/t725.jpg?contentType=tinkercad" alt="Tinkercad" style="width: 60px; height: 60px; object-fit: contain;">
+        </div>
+        <div class="skill-name">Tinkercad</div>
+        <p style="font-size:12px;">Designed and printed custom 3D parts to support lab and field experiments </p>
+      </div>
+      
+      
+      
+      <div class="skill">
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" alt="Blender" style="width: 60px; height: 60px; object-fit: contain;">
+        </div>
+        <div class="skill-name">Blender</div>
+        <p style="font-size:12px;">3D modeling, animation, and render control through scripting with Blender's Python API </p>
+      </div>
+      
+      <div class="skill">
+        <div class="skill-icon">
+            <img src="https://png.pngtree.com/png-vector/20240401/ourmid/pngtree-industrial-solar-panel-icon-i-clipart-vector-design-png-image_12250957.png" alt="Solar System Design" style="width: 60px; height: 60px; object-fit: contain;">
+        </div>
+        <div class="skill-name">Solar System</div>
+        <p style="font-size:12px;">Designed solar systems with charge controllers for optimized battery management and low-power field operation</p>
+      </div>
+
+      <!-- <div class="skill">
+        <div class="skill-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/8132/8132015.png" alt="Optical Components" style="width: 60px; height: 60px; object-fit: contain;">
+        </div>
+        <div class="skill-name">VNC</div>
+        <p style="font-size:12px;">Design, characterization and implementation of different optical elements for better sensor and signal quality</p>
+      </div> -->
+
+      <!-- <div class="skill">
+        <div class="skill-icon">
+            <img src="https://i0.wp.com/accugeospatial.com/wp-content/uploads/2020/01/arcgis-desktop.jpg" alt="ArcGIS Desktop" style="width: 60px; height: 60px; object-fit: contain;">
+        </div>
+        <div class="skill-name">ArcGIS</div>
+        <p style="font-size:12px;">Mapping, spatial analysis, and geographic data visualization using ArcGIS platform.</p>
+      </div>
+    
+      <div class="skill">
+        <div class="skill-icon">
+            <img src="https://images.seeklogo.com/logo-png/16/2/microsoft-office-365-logo-png_seeklogo-168321.png" alt="Microsoft Office 365" style="width: 60px; height: 60px; object-fit: contain;">
+        </div>
+        <div class="skill-name">Microsoft Office</div>
+        <p style="font-size:12px;">Document creation, spreadsheet analysis, and presentation design using MS Office tools.</p>
+      </div> -->
+      
+      
+    </div>
+  </section>
+  
+  
+
+
+
+
+<section id="publications" class="light">
+  <h2>Publications</h2>
+
+    <div class="publication-list">
+
+      <p>
+        1. <span class="author-name">Saha, T.</span>, Genoud, A.P., Williams, G. M., Russell, G.J., & Thomas, B.P. (2024).  
+        <span class="paper-title">"Monitoring Mosquito Abundance: Comparing an Optical Sensor with a Trapping Method."</span>  
+        <em>Insects</em>, 15(8):584
+        <a href="https://doi.org/10.3390/insects15080584" target="_blank" title="Open Article">🔗</a>
+      </p>
+
+      <p>
+        2. <span class="author-name">Saha, T.</span>, Genoud, A.P., Park, J.H., & Thomas, B.P. (2024).  
+        <span class="paper-title">"Temperature Dependency of Insect’s Wingbeat Frequencies: An Empirical Approach to Temperature Correction."</span>  
+        <em>Insects</em>, 15(5):342
+        <a href="https://doi.org/10.3390/insects15050342" target="_blank" title="Open Article">🔗</a>
+      </p>
+
+      <p>
+        3. <span class="author-name">Saha, T.</span>, Genoud, A.P., Williams, G.M., & Thomas, B.P. (2023).  
+        <span class="paper-title">"Monitoring the abundance of flying insects and atmospheric conditions during a 9-month campaign using an entomological optical sensor."</span>  
+        <em>Scientific Reports</em>, 13(1)
+        <a href="https://doi.org/10.1038/s41598-023-42884-7" target="_blank" title="Open Article">🔗</a>
+      </p>
+
+      <p>
+        4. Genoud, A.P., <span class="author-name">Saha, T.</span>, Williams, G.M., & Thomas, B.P. (2023).  
+        <span class="paper-title">"Insect biomass density: Measurement of seasonal and daily variations using an entomological optical sensor."</span>  
+        <em>Applied Physics B</em>, 129, 26
+        <a href="https://doi.org/10.1007/s00340-023-07973-5" target="_blank" title="Open Article">🔗</a>
+      </p>
+
+    </div>
+
+</section>
+
+
+
+
+
+<section id="conference" class="white" style="padding: 20px 50px 40px">
+    <h2>Conference & Presentations</h2>
+  
+      <div class="conference-list">
+        <div class="conference-item">
+          <h3>Entomology 2025, Entomological Society of America</h3>
+          <p><strong>Distinguished Speaker:</strong> Advances in Monitoring Flying Insects with Photonic Sensors </p>
+          <p><strong>Location:</strong> Portland, OR 97232 &nbsp; | &nbsp; <strong>Date:</strong> November 2025</p>
+        </div>
+
+        <div class="conference-item">
+          <h3>Entomology 2023, Entomological Society of America</h3>
+          <p><strong>Poster:</strong> Photonic monitoring of the aerial density and biomass density of flying insects during a 9-month campaign </p>
+          <p><strong>Location:</strong> National Harbor, MD 20745 &nbsp; | &nbsp; <strong>Date:</strong> November 2023</p>
+        </div>
+  
+      <div class="conference-item">
+        <h3>XXVI International Congress of Entomology</h3>
+        <p><strong>Oral Presentation:</strong> Near-Infrared Optical Sensors to Monitor Flying Insects</p>
+        <p><strong>Location:</strong> Helsinki, Finland &nbsp; | &nbsp; <strong>Date:</strong> July 2022</p>
+      </div>
+  
+      <div class="conference-item">
+        <h3>Mid-Atlantic Section of the American Physical Society</h3>
+        <p><strong>Topic:</strong> Monitoring the aerial density and circadian rhythm of flying insects using a near-infrared stand-off optical sensor</p>
+        <p><strong>Location:</strong> New Brunswick, NJ 08901 &nbsp; | &nbsp; <strong>Date:</strong> November 2021</p>
+      </div>
+    </div>
+  </section>
+  
+
+
+  
+  
+<!-- Voluntary Experience -->
+  <section id="voluntary" class="light">
+    <h2>Professional & Voluntary Activities</h2>
+  
+    <!-- Scroll wrapper -->
+    <div class="voluntary-scroll">
+      <!-- Grid forced into horizontal row -->
+      <div class="voluntary-grid no-wrap">
+        <div class="voluntary-card">
+          <h3>Peer Reviewer</h3>
+          <p>Review manuscripts for peer-reviewed journals, providing constructive feedback to ensure research quality and integrity.</p>
+        </div>
+  
+        <div class="voluntary-card">
+          <h3>Invited Judge</h3>
+          <p>Evaluated undergraduate engineering projects and presentations on a showcase event at NJIT.<br>(February, 2025)</p>
+        </div>
+  
+        <!-- <div class="voluntary-card">
+          <h3>Invited Panelist</h3>
+          <p>Shared experiences with incoming international Teaching Assistants in a workshop, focusing on effective teaching practices and academic responsibilities.</p>
+        </div> -->
+
+        <div class="voluntary-card">
+          <h3>General Secretary</h3>
+          <p>Leading Bangladeshi Graduate Student Association (BGSA) at NJIT to foster community and diversity.<br>(2024 - Present)</p>
+        </div>
+
+        <div class="voluntary-card">
+          <h3>Department Representative</h3>
+          <p>Served as liaison between Physics department and GSA at NJIT.<br>(2021 - 2022)</p>
+        </div>
+
+        <div class="voluntary-card">
+          <h3>Accountant</h3>
+          <p>Managed finances and budgeting to support event execution for the Physics Club, JUST.<br>(2019 - 2020)</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+  
+
+
+
+
+
+  <!-- Contact Info -->
+  <section id="contact" class="white" style="text-align: center;">
+    <h2 style="margin-bottom: 1rem;">Contact Me</h2>
+  
+    <!-- Social Icons -->
+    <div class="contact-icons">
+      <a href="https://www.linkedin.com/in/topuphyjust/" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://scholar.google.com/citations?user=DpBvt0EAAAAJ&hl=en&authuser=1" target="_blank" title="Google Scholar">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+      <a href="https://www.researchgate.net/profile/Topu-Saha" target="_blank" title="ResearchGate">
+        <i class="fab fa-researchgate"></i>
+      </a>
+      <a href="https://orcid.org/0000-0003-1568-6802" target="_blank" title="ORCID">
+        <i class="fab fa-orcid"></i>
+      </a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdA8VvcHi4eNZ7vJBTPYrzTO5VnS1_2AvCP05tdFJ1ARNvo-Q/viewform?usp=preview" target="_blank" title="Send Message">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  
+    <!-- Address and Map -->
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: stretch; max-width: 900px; margin: 0 auto;">
+      <!-- Text block -->
+      <div style="flex: 1 1 300px; text-align: left; display: flex; align-items: center;padding: 0 2rem;">
+        <p style="font-size: 1rem; line-height: 1.6; margin: 0;">
+          Office: Tiernan Hall, Room: B-005<br>
+          New Jersey Institute of Technology<br>
+          University Heights<br>
+          Newark, NJ 07102<br>
+          United States
+        </p>
+      </div>
+  
+      <!-- Map block -->
+      <div style="flex: 1 1 300px; padding-right: 0 2rem;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.8487199481385!2d-74.17933228459233!3d40.74225487932821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2537d52e542e5%3A0x99c62d7ae65e0f35!2sNew%20Jersey%20Institute%20of%20Technology!5e0!3m2!1sen!2sus!4v1718120168411"
+          width="90%" height="100%" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  
+    <!-- Copyright -->
+    <p style="margin-top: 40px; font-size: 0.8rem; color: #888;">
+      © 2025 Topu Saha. All rights reserved.
+    </p>
+  </section>
+  
+  
+
+
+
+
+
+
+
+
+
+<!-- Scripts for proper function -->
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  }
+
+  // Auto-hide menu if clicked outside
+  window.addEventListener('click', function(event) {
+    const menu = document.getElementById('menu');
+    const menuIcon = document.querySelector('.menu-icon');
+
+    if (menu.style.display === "block" && 
+        !menu.contains(event.target) && 
+        !menuIcon.contains(event.target)) {
+      menu.style.display = "none";
+    }
+})
+
+// Hide Menu when scrolling
+window.addEventListener('scroll', function() {
+    const menu = document.getElementById('menu');
+    if (menu.style.display === "block") {
+      menu.style.display = "none";
+    }
+})
+
+
+    const lines = [
+        "A PhD Candidate in Applied Physics",
+        "Research Focus on Applied Optics & Remote Sensing"
+    ];
+
+    let lineIndex = 0;
+    let charIndex = 0;
+    const textElement = document.getElementById("typewriter-text");
+
+    function typeLine() {
+        const line = lines[lineIndex];
+        if (charIndex < line.length) {
+        textElement.textContent += line.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeLine, 60); // Typing speed
+        } else {
+        setTimeout(() => {
+            lineIndex = (lineIndex + 1) % lines.length;
+            charIndex = 0;
+            textElement.textContent = ''; // Clear for the next line
+            setTimeout(typeLine, 400); // Delay before typing next
+        }, 1600); // Pause after line is typed
+        }
+    }
+
+
+
+
+// research slide cards description
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const slider = document.getElementById('slider');
+const dotsContainer = document.getElementById('dots');
+let slideInterval;
+
+const descriptions = [
+  { title: "Field Experiments", description: "Figure shows field-deployable entomological optical sensors (top-left in transmission mode, top-center in backscatter mode), optical layout (bottom-left) and experimental locations (right). We conducted more than 25 months of field cameign to monitor flying insects." },
+  { title: "eBoss", description: "Optical layout of Entomological Bistatic Optical Sensor System (eBoss), a field-deployable instrument that contains two major parts: (i) emitter: NIR laser source and other components, (ii) receiver: collecting optics and detector. The system continuously monitor free-flying insects in real time with minimal supervision." },
+  { title: "Solar eBoss", description: "Solar powered Entomological Bistatic Optical Sensor System (SeBoss), a fully autonomous, field-deployable instrument that continuously detects free-flying insects in real time and sends data to cloud server for remote analysis. The device utilizes solar power to operate laser, detector, necessary electronics, and a raspberry computer, capable of recording data in 1-100m range" },
+  { title: "Noise Budget", description: "Noise budget of a field experiment: five different sources of noise have been identified and their respective contribution is expressed in mV and in the percentage of total noise. The range of acquisition was between 0 and 5000 mV, spread over the 216 bins of the digitizer. Noise is defined by the standard deviation, and the five sources of noise are assumed to be independent and normally distributed." },
+  { title: "Event Selection", description: "Figure B shows 400 s of raw data with a sampling frequency of 30,517 Hz. A magnification on one of the identified insect events is displayed as an illustration. Figure A shows the count per bin of intensity and C is the spectrogram of the raw data. Figure D shows the optical extinction obtained from figure B, after the application of a digital bandpass filter. The red line indicates the detection threshold. Any part of the filtered signal that crosses the threshold is identified as a region of interest and the corresponding raw signal is then extracted for further analysis." },
+  { title: "Insect Identification", description: "Example of two types of signals and their corresponding frequency analysis. Figure A is an example of signal caused by an insect showing clear periodic drop in signal amplitude. Figure C shows its associated Fast Fourier Transform, from which the insect wingbeat frequency can be determined. Figure B is an example of a signal from a non-insect target crossing the probe volume, which does not have any periodic drop in signal amplitude, as can be seen from Figure D." },
+  { title: "Mosquito Abundance", description: "(a) Change in mosquito abundance throughout the entire season. (b) Mosquito aerial density (insects per cubic meter) as a date and time of the day; grey lines indicate sunrise and sunset times (EST, UTC-05:00)." },
+  { title: "Population Change with Weather", description: "(A) Average aerial and biomass densities of flying insects as a function of temperature (0.5 °C interval). (B) Average aerial density as a function of wind speed (1 km/h interval). (C and D) Average aerial and biomass density as a function of temperature and relative humidity (0.5 °C and 1% intervals respectively), white color represents the absence of recorded data." }
+];
+
+    // Show the active slide
+    function showSlide(index) {
+      if (index >= slides.length) currentSlide = 0;
+      else if (index < 0) currentSlide = slides.length - 1;
+      else currentSlide = index;
+
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      const dots = dotsContainer.children;
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+      }
+      dots[currentSlide].classList.add("active");
+    }
+
+    function changeSlide(direction) {
+      showSlide(currentSlide + direction);
+    }
+
+    function moveToSlide(index) {
+      showSlide(index);
+    }
+
+    // Start/Stop auto-slide
+    function startAutoSlide() {
+      slideInterval = setInterval(() => {
+        changeSlide(1);
+      }, 5000);
+    }
+
+    function stopAutoSlide() {
+      clearInterval(slideInterval);
+    }
+
+    // Popup logic
+    function showDetails(index) {
+      stopAutoSlide();
+      document.getElementById("cardTitle").innerText = descriptions[index].title;
+      document.getElementById("cardDescription").innerText = descriptions[index].description;
+      document.getElementById("detailCard").style.display = "flex";
+    }
+
+    function hideDetails() {
+      document.getElementById("detailCard").style.display = "none";
+      startAutoSlide();
+    }
+
+    // ✅ Auto-close popup on scroll
+    window.addEventListener('scroll', () => {
+      const card = document.getElementById('detailCard');
+      if (card.style.display === 'flex') {
+        hideDetails();
+      }
+    });
+
+    // Dot setup
+    function setupDots() {
+      for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        dot.onclick = () => moveToSlide(i);
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    // // Initialize
+    // window.onload = () => {
+    //   setupDots();
+    //   showSlide(currentSlide);
+    //   startAutoSlide();
+    // };
+
+    // ✅ ONE ONLOAD TO RULE THEM ALL
+  window.onload = () => {
+    setupDots();
+    showSlide(currentSlide);
+    startAutoSlide();
+    typeLine(); // <-- Start typewriter effect too
+  };
+
+</script>
+
+
+  
+
+</body>
+</html>
