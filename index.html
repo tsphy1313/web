@@ -37,7 +37,7 @@
         justify-content: center;
         flex-direction: column;
         overflow: hidden;
-        padding: 60px 20px;
+        padding: 3.75rem 1.25rem;
         top: 0;
         z-index: 1000;
         transition: all 0.3s ease;
@@ -51,17 +51,17 @@
     }
 
     .header-content p {
-        font-size: 1.25rem;
-        margin-top: 10px;
+        font-size: 1rem;
+        margin-top: 0.625rem;
         text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
 
     .menu-icon {
         position: absolute;
-        top: 15px;
-        left: 15px;
-        width: 30px;
-        height: 24px;
+        top: 1rem;
+        left: 1rem;
+        width: 2rem;
+        height: 1.5rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -79,12 +79,12 @@
     .natural-menu {
         display: none;
         position: fixed;
-        top: 50px;
-        left: 5px;
+        top: 3.125rem;
+        left: 0.3125rem;
         background: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(6px);
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        padding: 15px 20px;
+        padding: 1rem 1.25rem;
         border-radius: 10px;
         z-index: 1001;
     }
@@ -94,10 +94,10 @@
         align-items: center;
         color: white;
         text-decoration: none;
-        margin: 10px 0;
+        margin: 0.625rem 0;
         font-weight: 500;
         font-size: 1rem;
-        gap: 12px;
+        gap: 0.75rem;
         text-decoration: none;
         white-space: nowrap;
         transition: color 0.2s ease;
@@ -109,7 +109,7 @@
     }
     
     section {
-        padding: 20px 50px;
+        padding: 1.25rem 3.125rem;
     }
 
     .light {
@@ -126,7 +126,7 @@
 
     section h2 {
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
     }
 
     p {
@@ -134,7 +134,7 @@
         font-size: 1.25rem;
         line-height: 1.5;
         color: #333; /* dark gray for softer look */
-        margin-bottom: 20px;
+        margin-bottom: 1rem;
     }
 
     h2 {
@@ -150,7 +150,7 @@
         font-size: 1.25rem;
         line-height: 1.5;
         color: #0066cc;
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
     }
 
     a:hover {
@@ -167,19 +167,25 @@
     .intro-card {
         width: 80vw;
         max-width: 1200px;
-        margin: 20px auto;
+        margin: 1.25rem auto;
         background: rgba(255, 255, 255, 0.1); /* transparent glassy background */
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
-        padding: 30px;
+        padding: 1.875rem;
         text-align: left;
         transition: transform 0.3s ease;
     }
 
     .intro-card:hover {
         transform: translateY(-5px);
+    }
+
+    .intro-card p {
+      margin-bottom: 1rem;
+      line-height: 1.5;
+      font-size: 1.25rem;
     }
 
     .education-list {
@@ -203,8 +209,8 @@
         background: rgba(255, 255, 255, 0.1);
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        padding: 20px 30px;
-        gap: 40px;
+        padding: 1.25rem 1.875rem;
+        gap: 2.5rem;
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
         transition: transform 0.3s ease;
@@ -213,12 +219,15 @@
     .edu-text {
         flex: 1;
         text-align: left;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+        font-size: 1.25rem;
     }
 
     .edu-degree {
         font-size: 1.25rem;
         font-weight: bold;
-        margin-bottom: 8px;
+        margin-bottom: 0.5rem;
     }
 
     .edu-logo-box {
@@ -259,7 +268,7 @@
     .edu-logo-box {
         flex-direction: column;
         align-items: flex-start;
-        margin-top: 15px;
+        margin-top: 1rem;
     }
 
     .edu-logo {
@@ -304,7 +313,7 @@
     .click-note {
       position: absolute;
       bottom: 2px;
-      right: 55px;
+      right: 60px;
       font-size: 0.5rem;
       font-weight: 500;
       color: rgb(20, 20, 20);
@@ -332,7 +341,7 @@
     /* --- POPUP CARD --- */
     #detailCard .popup-card {
       background: #f1ebeb;
-      padding: 20px 30px;
+      padding: 1.25rem 1.875rem;
       border-radius: 12px;
       max-width: 400px;
       width: 90%;
@@ -356,7 +365,7 @@
     }
 
     #detailCard button {
-      padding: 8px 16px;
+      padding: 0.5rem 1rem;
       background-color: #333;
       color: white;
       border: none;
@@ -385,8 +394,8 @@
         background: rgba(0,0,0,0.25);
         color: white;
         border: none;
-        width: 30px;  /* fixed width */
-        height: 30px; /* fixed height */
+        width: 2rem;  /* fixed width */
+        height: 2rem; /* fixed height */
         font-size: 0.75rem;
         border-radius: 50%;
         cursor: pointer;
@@ -414,8 +423,8 @@
     }
 
     .dots span {
-        height: 8px;
-        width: 8px;
+        height: 0.5rem;
+        width: 0.5rem;
         margin: 0 4px;
         background-color: #bbb;
         border-radius: 50%;
@@ -437,14 +446,14 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 10px;
-      padding: 20px;
+      padding: 1.25rem;
       max-width: 1200px;
       margin: auto;
     }
 
     .skill {
       background: white;
-      padding: 15px;
+      padding: 1rem;
       padding-bottom: 0;
       text-align: center;
       border-radius: 8px;
@@ -457,7 +466,7 @@
     }
 
     .skill-icon {
-      font-size: 40px;
+      font-size: 2.5rem;
       /* margin-bottom: 10px; */
     }
 
@@ -513,6 +522,7 @@
     }
 
     .conference-item {
+      max-width: 1200px;
       background: #f9f9f9;
       border-radius: 10px;
       padding: 1rem;
@@ -535,7 +545,7 @@
     .voluntary-scroll {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
-      padding: 0 20px;
+      padding: 0 1.25rem;
       position: relative;
       scrollbar-width: none;
     }
@@ -546,18 +556,18 @@
 
     .voluntary-grid {
       display: flex;
-      gap: 20px;
+      gap: 1.25rem;
       width: max-content;
       margin: 0 auto;
-      padding: 20px;
+      padding: 1.25rem;
     }
 
     .voluntary-card {
       flex: 0 0 auto;
-      width: 220px; /* Fixed consistent width */
+      width: 13.75rem; /* Fixed consistent width */
       background: rgba(255, 255, 255, 0.9);
       border-radius: 12px;
-      padding: 20px;
+      padding: 1.25rem;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
@@ -570,7 +580,7 @@
 
     .voluntary-card h3 {
       font-size: 1.2rem;
-      margin-bottom: 10px;
+      margin-bottom: 0.5rem;
       color: #333;
     }
 
@@ -581,11 +591,11 @@
 
     /* === Optional: Padding on first and last cards === */
     .voluntary-card:first-child {
-      margin-left: 10px;
+      margin-left: 0.5rem;
     }
 
     .voluntary-card:last-child {
-      margin-right: 10px;
+      margin-right: 0.5rem;
     }
 
 
@@ -618,14 +628,14 @@
       font-weight: 800;
       color: white;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-      margin-bottom: 20px;
+      margin-bottom: 1.25rem;
     }
 
     .header-content {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 15px;
+      gap: 1rem;
     }
 
 
@@ -634,12 +644,21 @@
       font-weight: 400;
       color: #fff;
       text-align: center;
-      min-height: 0.75rem;
+      min-height: 0.5rem;
       white-space: nowrap;
       overflow: hidden;
       width: fit-content;
       margin: 0 auto;
     }
+
+    #typewriter-text {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 500;
+      color: white;
+      min-height: 1.5em; /* keeps height consistent while typing */
+    }
+
 
    
     html {
@@ -654,7 +673,7 @@
 
     @media (max-width: 768px) {
     section {
-      padding: 20px 15px;
+      padding: 1.25rem 1rem;
     }
   
     .header-content h1 {
@@ -662,7 +681,7 @@
     }
   
     .header-content p {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
   
     .highlighted-name {
@@ -676,12 +695,12 @@
     .publication-list,
     .conference-list {
       width: 90vw;
-      padding: 20px;
+      padding: 1.25rem;
     }
 
     .edu-card {
       flex-direction: column;
-      gap: 20px;
+      gap: 1.25rem;
     }
   
     .edu-logo {
@@ -689,15 +708,15 @@
     }
   
     .arrow.left {
-      left: 10px;
+      left: 0.5rem;
     }
   
     .arrow.right {
-      right: 10px;
+      right: 0.5rem;
     }
   
     .skill {
-      padding: 10px;
+      padding: 0.5rem;
     }
   
     .skill-icon {
@@ -749,7 +768,7 @@
 
 @media (max-width: 768px) {
   section {
-    padding: 20px 10px;
+    padding: 1.25rem 0.5rem;
   }
 
   .hero-header {
@@ -924,9 +943,9 @@
           <br> New Jersey Institute of Technology <a href="https://www.njit.edu/" target="_blank" title="Open Link">🔗</a>
           <br> Responsibilities: Lab Instructor, Grader, Proctor, Mentor
           <br> Course conducted:
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;1. Physics I: General Physics Lab (<a href="https://drive.google.com/file/d/1t2EX_nRn3s6KTvfeGiteJD4zMDSS8dvG/view?usp=sharing" target="_blank">Syllabus</a>)
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;2. Physics II: Electricity and Magnetism Lab (<a href="https://drive.google.com/file/d/1TpG82eWlF1PCwraB196Vh4OCRDQIHrmJ/view?usp=sharing" target="_blank">Syllabus</a>)
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;3. Physics III: Modern Physics Lab (<a href="https://drive.google.com/file/d/1aSaGRSEjQtpzk-LcfQt2N6GF2NgoZgw1/view?usp=sharing" target="_blank">Syllabus</a>)
+                <br>&nbsp;&nbsp;&nbsp;1. Physics I: General Physics Lab (<a href="https://drive.google.com/file/d/1t2EX_nRn3s6KTvfeGiteJD4zMDSS8dvG/view?usp=sharing" target="_blank">Syllabus</a>)
+                <br>&nbsp;&nbsp;&nbsp;2. Physics II: Electricity and Magnetism Lab (<a href="https://drive.google.com/file/d/1TpG82eWlF1PCwraB196Vh4OCRDQIHrmJ/view?usp=sharing" target="_blank">Syllabus</a>)
+                <br>&nbsp;&nbsp;&nbsp;3. Physics III: Modern Physics Lab (<a href="https://drive.google.com/file/d/1aSaGRSEjQtpzk-LcfQt2N6GF2NgoZgw1/view?usp=sharing" target="_blank">Syllabus</a>)
             
       </div>
     </li>
@@ -937,9 +956,9 @@
         <div class="edu-text">
           <b class="edu-degree">Graduate Research Assistant </b> <i> (June 2022 - August 2022)</i>
           <br> Project: Monitoring mosquito eco-systems and vector-control strategies using a stand-off optical sensor <a href="https://reporter.nih.gov/search/DLo9x-vB_0uWwJf9RbxWBw/project-details/10215105" target="_blank" title="Open Link">🔗</a>
-        <br> Funding Organization: National Institute of Allergy and Infectious Diseases (NIH)
-        <br> Advisor: <a href="https://people.njit.edu/profile/bthomas" target="_blank">Dr. Benjamin Thomas</a>, Applied Optics and Remote Sensing Laboratory, NJIT
-        <br> Responsibilities: Conducting research to meet project goals, developing and validating experimental methodology, data management, writing technical reports, mentoring undergraduate researchers
+          <br> Funding Organization: National Institute of Allergy and Infectious Diseases (NIH)
+          <br> Advisor: <a href="https://people.njit.edu/profile/bthomas" target="_blank">Dr. Benjamin Thomas</a>, Applied Optics and Remote Sensing Laboratory, NJIT
+          <br> Responsibilities: Conducting research to meet project goals, developing and validating experimental methodology, data management, writing technical reports, mentoring undergraduate researchers
         </div>
   
       </div>
@@ -965,37 +984,30 @@
 
       <div class="slide"  onclick="showDetails(1)">
         <img src="eBoss.pdf" alt="">
-        <div class="click-note">*Click image for details</div>
       </div>
 
       <div class="slide"  onclick="showDetails(2)">
         <img src="SeBOSS.pdf" alt="">
-        <div class="click-note">*Click image for details</div>
       </div>
 
       <div class="slide"  onclick="showDetails(3)">
         <img src="noise.pdf" alt="">
-        <div class="click-note">*Click image for details</div>
       </div>
 
       <div class="slide"  onclick="showDetails(4)">
         <img src="event_select.pdf" alt="">
-        <div class="click-note">*Click image for details</div>
       </div>
 
       <div class="slide"  onclick="showDetails(5)">
         <img src="no_insect.pdf" alt="">
-        <div class="click-note">*Click image for details</div>
       </div>
 
       <div class="slide"  onclick="showDetails(6)">
         <img src="m_ad_bd.pdf" alt="">
-        <div class="click-note">*Click image for details</div>
       </div>
 
       <div class="slide"  onclick="showDetails(7)">
         <img src="weather.pdf" alt="">
-        <div class="click-note">*Click image for details</div>
       </div>
 
     </div>
@@ -1263,8 +1275,10 @@
 
 
 
-<section id="conference" class="white" style="padding: 20px 50px 40px">
-    <h2>Conference & Presentations</h2>
+<!-- <!-- <section id="conference" class="white" style="padding: 1.25rem 3rem 2.5rem"> -->
+  <section id="conference" class="white">
+
+    <h2>Conference & Presentations</h2> -->
   
       <div class="conference-list">
         <div class="conference-item">
@@ -1545,20 +1559,14 @@ const descriptions = [
       }
     }
 
-    // // Initialize
-    // window.onload = () => {
-    //   setupDots();
-    //   showSlide(currentSlide);
-    //   startAutoSlide();
-    // };
 
     // ✅ ONE ONLOAD TO RULE THEM ALL
-  window.onload = () => {
-    setupDots();
-    showSlide(currentSlide);
-    startAutoSlide();
-    typeLine(); // <-- Start typewriter effect too
-  };
+    window.onload = () => {
+      setupDots();
+      showSlide(currentSlide);
+      startAutoSlide();
+      typeLine(); // <-- Start typewriter effect too
+    };
 
 </script>
 
