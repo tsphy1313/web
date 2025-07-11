@@ -45,13 +45,13 @@
     }
 
     .header-content h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
         margin: 0;
         text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
 
     .header-content p {
-        font-size: 1rem;
+        font-size: 0.8rem;
         margin-top: 0.625rem;
         text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
@@ -165,15 +165,19 @@
     }
 
     .intro-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 80vw;
         max-width: 1200px;
-        margin: 1.25rem auto;
+        margin: 1rem auto;
         background: rgba(255, 255, 255, 0.1); /* transparent glassy background */
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
-        padding: 1.875rem;
+        padding: 1.25rem 1.875rem;
+        gap: 2.5rem;
         text-align: left;
         transition: transform 0.3s ease;
     }
@@ -344,7 +348,7 @@
       padding: 1.25rem 1.875rem;
       border-radius: 12px;
       max-width: 400px;
-      width: 90%;
+      width: 100%;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       text-align: center;
       animation: fadeIn 0.3s ease;
@@ -410,11 +414,11 @@
     }
 
     .left {
-        left: 50px;
+        left: 3.5rem;
     }
 
     .right {
-        right: 50px;
+        right: 3.5rem;
     }
 
     .dots {
@@ -514,11 +518,11 @@
 
     .conference-list {
       max-width: 1200px;
-      margin: auto;
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      /* padding: 0 1rem; */
+      margin: 0 auto;
+      padding: 1.25rem;
     }
 
     .conference-item {
@@ -579,7 +583,7 @@
     }
 
     .voluntary-card h3 {
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin-bottom: 0.5rem;
       color: #333;
     }
@@ -644,7 +648,7 @@
       font-weight: 400;
       color: #fff;
       text-align: center;
-      min-height: 0.5rem;
+      min-height: 0.3rem;
       white-space: nowrap;
       overflow: hidden;
       width: fit-content;
@@ -653,7 +657,7 @@
 
     #typewriter-text {
       display: inline-block;
-      font-size: 1rem;
+      font-size: 0.8rem;
       font-weight: 500;
       color: white;
       min-height: 1.5em; /* keeps height consistent while typing */
@@ -1274,9 +1278,7 @@
 
 
 
-
-<!-- <!-- <section id="conference" class="white" style="padding: 1.25rem 3rem 2.5rem"> -->
-  <section id="conference" class="white">
+<section id="conference" class="white">
 
     <h2>Conference & Presentations</h2> -->
   
