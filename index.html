@@ -362,8 +362,7 @@
 
     @media (max-width: 768px) {
       .click-note {
-        font-size: 0.35rem;
-        padding-right: 0;
+        display: none;
       }
     }
 
@@ -466,7 +465,7 @@
     .arrow {
       width: 1.5rem;
       height: 1.5rem;
-      font-size: 0.5rem;
+      font-size: 0.6rem;
     }
   
     .arrow:hover {
@@ -626,6 +625,28 @@
       font-size: 0.8rem;
       color: #555;
     }
+
+
+    @media (max-width: 600px) {
+    .conference-list {
+      padding: 0.8rem;
+      gap: 0.4rem;
+    }
+  
+    .conference-item {
+      padding: 0.6rem 0.8rem;
+      border-radius: 8px;
+    }
+  
+    .conference-item h3 {
+      font-size: 0.9rem;
+    }
+  
+    .conference-item p {
+      font-size: 0.65rem;
+    }
+  }
+
 
 
     .voluntary-scroll {
@@ -1134,8 +1155,6 @@
   <div class="click-note">*Click image for details</div>
 
   
-  <br>
-
   <div class="project-text">
 
     <style>
