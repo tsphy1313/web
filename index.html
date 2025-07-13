@@ -347,17 +347,25 @@
     }
 
     .click-note {
-      width: fit-content;
+      width: 80vw;
       max-width: 900px;
       margin: 0 auto; 
       text-align: right;
-      font-size: 0.5rem;
+      font-size: 0.75rem;
       font-weight: 500;
       color: rgb(20, 20, 20);
       font-style: italic;
       padding-right: 0.5rem;
       pointer-events: none; /* lets clicks pass through */
     }
+
+    @media (max-width: 600px) {
+      .click-note {
+        font-size: 0.45rem;
+        padding-right: 0.8rem;
+      }
+    }
+
 
 
 
