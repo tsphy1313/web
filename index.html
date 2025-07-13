@@ -320,7 +320,6 @@
       width: 80vw;
       max-width: 900px;
       margin: auto;
-      height: auto;
       border-radius: 0.75rem;
       position: relative;
       padding: 0;
@@ -338,6 +337,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         cursor: pointer;
+        padding: 0;
     }
 
     .slide img {
@@ -1095,9 +1095,6 @@
     <!-- Arrows -->
     <button class="arrow left" onclick="changeSlide(-1)">&#10094;</button>
     <button class="arrow right" onclick="changeSlide(1)">&#10095;</button>
-  
-    <!-- Dots -->
-    <div class="dots" id="dots"></div>
 
 
     <!-- POPUP CARD -->
@@ -1110,6 +1107,9 @@
     </div>
   
   </div>
+
+  <div class="dots" id="dots"></div>
+
 
   <div class="click-note">*Click image for details</div>
 
