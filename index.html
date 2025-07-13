@@ -349,7 +349,7 @@
 
     .click-note {
       width: 80vw;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto; 
       text-align: right;
       font-size: 0.6rem;
@@ -365,9 +365,6 @@
         font-size: 0.45rem;
       }
     }
-
-
-
 
 
     /* --- POPUP OVERLAY --- */
@@ -441,9 +438,9 @@
         background: rgba(0,0,0,0.25);
         color: white;
         border: none;
-        width: 2rem;  /* fixed width */
-        height: 2rem; /* fixed height */
-        font-size: 0.75rem;
+        width: 3rem;  /* fixed width */
+        height: 3rem; /* fixed height */
+        font-size: 0.8rem;
         border-radius: 50%;
         cursor: pointer;
         z-index: 999;
@@ -463,6 +460,28 @@
     .right {
         right: 2rem;
     }
+
+    @media (max-width: 768px) {
+    .arrow {
+      width: 1.5rem;
+      height: 1.5rem;
+      font-size: 0.5rem;
+    }
+  
+    .arrow:hover {
+      transform: translateY(-50%) scale(1.05); /* slightly smaller hover effect */
+      box-shadow: 0 0 6px rgba(255, 255, 255, 0.5); /* softer glow */
+    }
+  
+    .left {
+      left: 1rem;
+    }
+  
+    .right {
+      right: 1rem;
+    }
+  }
+
 
     .dots {
         text-align: center;
