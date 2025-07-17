@@ -378,18 +378,19 @@
 
     /* --- POPUP OVERLAY --- */
     #detailCard {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
-      right: 0;
-      width: 100vw;
-      height: 100vh;
+/*       right: 0; */
+      width: 100%;
+      height: 100%;
       background: rgba(0, 0, 0, 0.4);
-      display: none;
+      display: flex;
       justify-content: center;
       align-items: center;
-      transform: scale(0.9);
+/*       transform: scale(0.9); */
       z-index: 999;
+      pointer-events: auto;
     }
 
     @media (max-width: 768px) {
@@ -499,7 +500,7 @@
 
     .dots {
         text-align: center;
-        margin-top: -105px;
+        margin-top: -110px;
     }
     
     @media (max-width: 768px) {
@@ -588,7 +589,7 @@
     }
 
     .publication-list p {
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.8rem;
       line-height: 1.25;
       font-size: 1rem;
       color: #333;
@@ -667,12 +668,10 @@
     }
   }
 
-
-
     .voluntary-scroll {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
-      padding: 0 1rem;
+      padding: 0 0.75rem;
       position: relative;
       scrollbar-width: none;
     }
@@ -694,7 +693,7 @@
       width: 11rem; /* Fixed consistent width*/
       background: rgba(255, 255, 255, 0.3);
       border-radius: 12px;
-      padding: 1rem;
+      padding: 0.7rem;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
@@ -747,7 +746,7 @@
 
     .contact-icons a:hover {
       color: #0077b5; /* LinkedIn blue as hover */
-      transform: scale(1.5);
+      transform: scale(1.8);
     }
 
     .highlighted-name {
@@ -1555,7 +1554,7 @@
     </div>
   
     <!-- Copyright -->
-    <p style="margin-top: 1rem; font-size: 0.8rem; color: #888;">
+    <p style="margin-top: 1.25rem; font-size: 0.8rem; color: #888;">
       © 2025 Topu Saha. All rights reserved.
     </p>
   </section>
