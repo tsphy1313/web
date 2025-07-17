@@ -327,6 +327,12 @@
       transform-origin: top center;
      }
 
+    @media (max-width: 768px) {
+      .slider-container {
+        transform: scale(1);
+      }
+    }
+
 
     .slider {
         display: flex;
@@ -488,7 +494,11 @@
 
     .dots {
         text-align: center;
-        margin-top: -90px;
+        margin-top: -100px;
+    }
+    @media (max-width: 768px) {
+    .dots {
+      margin-top: 0.5rem;
     }
 
     .dots span {
@@ -674,7 +684,7 @@
 
     .voluntary-card {
       flex: 0 0 auto;
-      width: 150px; /* Fixed consistent width 12rem*/
+      width: 200px; /* Fixed consistent width 12rem*/
       background: rgba(255, 255, 255, 0.3);
       border-radius: 12px;
       padding: 1.25rem;
