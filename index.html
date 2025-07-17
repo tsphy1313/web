@@ -356,8 +356,8 @@
     }
 
     .click-note {
-      width: 80vw;
-      max-width: 1200px;
+      width: 100vw;
+      max-width: 900px;
       margin: 0 auto; 
       text-align: right;
       font-size: 0.5rem;
@@ -381,8 +381,8 @@
       top: 0;
       left: 0;
       right: 0;
-      width: 80vw;
-      height: 80vh;
+      width: 100vw;
+      height: 100vh;
       background: rgba(0, 0, 0, 0.4);
       display: none;
       justify-content: center;
@@ -438,7 +438,6 @@
     }
 
 
-
     .arrow {
         position: absolute;
         top: 50%;
@@ -490,10 +489,9 @@
     }
   }
 
-
     .dots {
         text-align: center;
-        margin-top: 0rem;
+        margin-top: -100px;
     }
 
     .dots span {
@@ -637,7 +635,7 @@
 
     @media (max-width: 768px) {
     .conference-list {
-      padding: 0.8rem;
+      padding: 0.75rem;
       gap: 0.5rem;
     }
   
@@ -679,10 +677,10 @@
 
     .voluntary-card {
       flex: 0 0 auto;
-      width: 10rem; /* Fixed consistent width 12rem*/
+      width: 10rem; /* Fixed consistent width*/
       background: rgba(255, 255, 255, 0.3);
       border-radius: 12px;
-      padding: 1.25rem;
+      padding: 1rem;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
@@ -936,9 +934,9 @@
     window.addEventListener('scroll', function() {
       const header = document.querySelector('header');
       if (window.scrollY > 50) {
-        header.style.height = "15px";
+        header.style.height = "12px";
       } else {
-        header.style.height = "100px"; // normal height
+        header.style.height = "80px"; // normal height
       }
     });
 </script>
@@ -1610,7 +1608,6 @@ window.addEventListener('scroll', function() {
         }, 1600); // Pause after line is typed
         }
     }
-
 
 
 
