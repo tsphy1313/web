@@ -388,7 +388,14 @@
       display: none;
       justify-content: center;
       align-items: center;
+      transform: scale(0.9);
       z-index: 999;
+    }
+
+    @media (max-width: 768px) {
+      #detailCard {
+        transform: scale(0.98);
+      }
     }
 
     /* --- POPUP CARD --- */
@@ -492,7 +499,7 @@
 
     .dots {
         text-align: center;
-        margin-top: 0rem;
+        margin-top: -1rem;
     }
     
 /*     @media (max-width: 768px) {
@@ -683,7 +690,7 @@
 
     .voluntary-card {
       flex: 0 0 auto;
-      width: 11rem; /* Fixed consistent width*/
+      width: 12rem; /* Fixed consistent width*/
       background: rgba(255, 255, 255, 0.3);
       border-radius: 12px;
       padding: 1rem;
