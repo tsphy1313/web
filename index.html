@@ -446,6 +446,12 @@
       }
     }
 
+    
+      body.popup-open {
+        overflow: hidden;
+      }
+
+
 
     .arrow {
         position: absolute;
@@ -1641,6 +1647,18 @@ const descriptions = [
   { title: "Mosquito Abundance", description: "(a) Change in mosquito abundance throughout the entire season. (b) Mosquito aerial density (insects per cubic meter) as a date and time of the day; grey lines indicate sunrise and sunset times (EST, UTC-05:00)." },
   { title: "Population Change with Weather", description: "(A) Average aerial and biomass densities of flying insects as a function of temperature (0.5 °C interval). (B) Average aerial density as a function of wind speed (1 km/h interval). (C and D) Average aerial and biomass density as a function of temperature and relative humidity (0.5 °C and 1% intervals respectively), white color represents the absence of recorded data." }
 ];
+
+
+  function showPopup() {
+    document.body.classList.add('popup-open');
+    document.getElementById('detailCard').style.display = 'flex';
+  }
+  
+  function closePopup() {
+    document.body.classList.remove('popup-open');
+    document.getElementById('detailCard').style.display = 'none';
+  }
+
 
     // Show the active slide
     function showSlide(index) {
