@@ -27,7 +27,7 @@
 
     .hero-header {
         position: sticky;
-        height: 100px;
+        height: 80px; /* 100 before */
         background: url('banner.jpg') no-repeat center center/cover;
         color: white;
         text-align: center;
@@ -67,6 +67,8 @@
         justify-content: space-between;
         cursor: pointer;
         z-index: 1001;
+        transform: scale(0.9);
+        
     }
 
     .menu-icon span {
@@ -188,7 +190,6 @@
     }
 
     .intro-card p {
-/*       margin-bottom: 1rem; */
       line-height: 1.25;
       font-size: 1rem;
     }
@@ -238,7 +239,6 @@
     .edu-text {
         flex: 1;
         text-align: left;
-/*         margin-bottom: 1rem; */
         line-height: 1.25;
         font-size: 1rem;
     }
@@ -494,7 +494,7 @@
 
     .dots {
         text-align: center;
-        margin-top: -90px;
+/*         margin-top: -90px; */
     }
     @media (max-width: 768px) {
     .dots {
