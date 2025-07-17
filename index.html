@@ -27,7 +27,7 @@
 
     .hero-header {
         position: sticky;
-        height: 100px;
+        height: 80px;
         background: url('banner.jpg') no-repeat center center/cover;
         color: white;
         text-align: center;
@@ -67,6 +67,8 @@
         justify-content: space-between;
         cursor: pointer;
         z-index: 1001;
+        transform: scale(0.8);
+        
     }
 
     .menu-icon span {
@@ -188,7 +190,6 @@
     }
 
     .intro-card p {
-/*       margin-bottom: 1rem; */
       line-height: 1.25;
       font-size: 1rem;
     }
@@ -238,7 +239,6 @@
     .edu-text {
         flex: 1;
         text-align: left;
-/*         margin-bottom: 1rem; */
         line-height: 1.25;
         font-size: 1rem;
     }
@@ -258,7 +258,7 @@
     }
 
     .edu-logo {
-        width: 100px;
+        width: 105px;
         height: auto;
     }
 
@@ -306,7 +306,7 @@
     }
 
     .edu-logo {
-        width: 60px;
+        width: 62.5px;
         height: auto;
     }
 
@@ -327,14 +327,11 @@
       transform-origin: top center;
      }
 
-    .slider-container-wrapper {
-      display: flex;
-      justify-content: center;
-      transform: scale(0.8);
-      transform-origin: top center;
-      height: 0;                  /* clears reserved space */
+     @media (max-width: 768px) {
+      .slider-container {
+        transform: scale(0.95);
+      }
     }
-
 
     .slider {
         display: flex;
@@ -496,7 +493,7 @@
 
     .dots {
         text-align: center;
-        margin-top: 0.5rem;
+        margin-top: 0rem;
     }
 
     .dots span {
@@ -638,7 +635,7 @@
     }
 
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
     .conference-list {
       padding: 0.8rem;
       gap: 0.5rem;
@@ -682,7 +679,7 @@
 
     .voluntary-card {
       flex: 0 0 auto;
-      width: 12rem; /* Fixed consistent width */
+      width: 10rem; /* Fixed consistent width 12rem*/
       background: rgba(255, 255, 255, 0.3);
       border-radius: 12px;
       padding: 1.25rem;
@@ -709,11 +706,11 @@
 
     /* === Optional: Padding on first and last cards === */
     .voluntary-card:first-child {
-      margin-left: 0.5rem;
+      margin-left: 0.2rem;
     }
 
     .voluntary-card:last-child {
-      margin-right: 0.5rem;
+      margin-right: 0.2rem;
     }
 
 
