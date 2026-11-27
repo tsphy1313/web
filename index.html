@@ -36,6 +36,10 @@ img{max-width:100%;display:block}
 section{padding:clamp(40px,6vw,88px) 0 0}
 .h2{font-size:clamp(28px,4vw,42px);margin-bottom:8px}
 .lead{color:var(--mute);margin:0 0 28px}
+.lead:empty{display:none}
+#focus{padding-top:clamp(24px,3vw,36px)}
+.beam{margin-top:20px}
+.h3sub{font-size:clamp(22px,2.6vw,30px);margin:clamp(32px,4vw,48px) 0 16px}
 /* nav */
 nav{position:sticky;top:12px;z-index:20;margin:12px auto 0;width:min(1180px,calc(100% - 24px));display:flex;align-items:center;gap:8px;padding:6px 6px 6px 18px;border-radius:999px}
 nav .me{flex:none;margin-right:12px;font-weight:600;white-space:nowrap;text-decoration:none;font-family:"Inter Tight",sans-serif}
@@ -70,13 +74,13 @@ nav .links a:hover,nav .links a.on{color:var(--ink);background:var(--glass2)}
 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
 .photo figcaption{position:absolute;left:14px;right:14px;bottom:14px;padding:12px 16px;border-radius:18px;font-size:14px}
 /* sensor figure */
-.beam{margin-top:clamp(20px,3vw,32px);padding:clamp(20px,3vw,36px)}
+.beam{padding:clamp(20px,3vw,36px)}
 .bfig{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:14px;margin-top:20px;align-items:stretch}
 .bleft{display:grid;gap:12px;align-content:space-between}
 .bfig .zoom img{width:100%;height:auto}
 .bfig>.zoom{display:flex;align-items:center;justify-content:center}
 .bfig>.zoom img{width:100%;height:100%;object-fit:contain}
-.beam h3{font-size:clamp(22px,2.4vw,28px);margin-bottom:10px}
+.beam h3{font-size:clamp(20px,2vw,24px);margin-bottom:10px}
 .zoom{all:unset;cursor:zoom-in;display:block;border-radius:18px;overflow:hidden;background:var(--fig)}
 .zoom img{width:100%;height:auto}
 .zoom:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
@@ -124,7 +128,7 @@ nav .links a:hover,nav .links a.on{color:var(--ink);background:var(--glass2)}
 .projects.open .mini.more{display:block}
 .morewrap{display:flex;justify-content:center;margin-top:18px}
 .ptext{padding:clamp(20px,3vw,36px) clamp(20px,3vw,36px) 20px;display:flex;flex-direction:column;gap:14px}
-.ptext h3{font-size:clamp(22px,2.4vw,28px)}
+.ptext h3{font-size:clamp(20px,2vw,24px)}
 .result{font-size:17px;font-weight:500;margin:0}
 .result em{font-style:normal;color:var(--laser);font-weight:600}
 .pbm{display:grid;gap:10px;margin:0}
@@ -207,7 +211,7 @@ dialog .x{position:absolute;top:20px;right:20px}
 <nav class="glass" aria-label="Sections">
   <a class="me" href="#top">Topu Saha</a>
   <div class="links">
-    <a href="#education">Education</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#publications">Publications</a><a href="#contact">Contact</a>
+    <a href="#education">Education</a><a href="#experience">Experience</a><a href="#projects">Research</a><a href="#skills">Skills</a><a href="#publications">Publications</a><a href="#contact">Contact</a>
   </div>
 </nav>
 
@@ -227,30 +231,18 @@ dialog .x{position:absolute;top:20px;right:20px}
     </div>
   </div>
 
-  <div class="beam glass rv">
-    <h3>What the sensor sees</h3>
-    <p>Two sensor layouts: (i) sends a laser beam out and collects the light that insects scatter back, (ii) measures how much an insect blocks the light between an emitter and a receiver. Either way, an insect crossing the laser beam changes the signal.</p>
-    <div class="bfig">
-      <div class="bleft">
-        <button class="zoom" data-src="img/esos-illustration.jpg" data-cap="ESOS: monostatic backscatter layout. A laser and telescope sit together and collect light scattered back by insects, about 10–100 m away"><img src="img/esos-illustration.jpg" alt="Illustration of the ESOS backscatter sensor: laser and telescope on one side, beam passing an insect toward trees"></button>
-        <button class="zoom" data-src="img/eboss-illustration.jpg" data-cap="eBoss: bistatic extinction layout. A laser source and collecting optics face each other, about 1–100 m apart, and an insect crossing the beam dims it"><img src="img/eboss-illustration.jpg" alt="Illustration of the eBoss bistatic sensor: laser source and collecting optics facing each other across an insect"></button>
-      </div>
-      <button class="zoom" data-src="img/wingbeat-signal.jpg" data-cap="A measured insect transit: the signal drops as the wings and body enter the beam, oscillating at the wingbeat frequency"><img src="img/wingbeat-signal.jpg" alt="Measured optical signal of one insect crossing the laser beam, annotated from wing entry to wing exit"></button>
-    </div>
-  </div>
-
-  <div class="stats">
-    <div class="stat glass rv"><div class="n">25+</div><div class="l"> months of field operation</div></div>
-    <div class="stat glass rv"><div class="n">3</div><div class="l">instruments tested on-site</div></div>
-    <div class="stat glass rv"><div class="n">~1 M</div><div class="l">insect signals recorded</div></div>
-    <div class="stat glass rv"><div class="n">6</div><div class="l">journal papers published</div></div>
-  </div>
-
   <section id="focus">
     <h2 class="h2 rv">What I bring</h2>
     <p class="lead rv">Hands-on optics, sensing systems that survive outdoors, and the analysis that turns raw sensor data into physically meaningful results.</p>
     <div class="focus glass rv"><h3>From optical bench to field data</h3><p style="margin:0 0 22px">I design and align the optics, build prototypes in the laboratory, integrate the optics, electronics and software, perform noise budgets, and keep sensors running through long field campaigns.</p><ul class="caps" id="caps"></ul></div>
   </section>
+
+  <div class="stats">
+    <div class="stat glass rv"><div class="n">25+</div><div class="l"> months of field operation</div></div>
+    <div class="stat glass rv"><div class="n">3</div><div class="l">instruments tested on-site</div></div>
+    <div class="stat glass rv"><div class="n">~1 M</div><div class="l">transit signals recorded</div></div>
+    <div class="stat glass rv"><div class="n">6</div><div class="l">journal papers published</div></div>
+  </div>
 
   <section id="education">
     <h2 class="h2 rv">Education</h2>
@@ -319,8 +311,19 @@ dialog .x{position:absolute;top:20px;right:20px}
   </section>
 
   <section id="projects">
-    <h2 class="h2 rv">Selected projects</h2>
-    <p class="lead rv"></p>
+    <h2 class="h2 rv">Research</h2>
+    <div class="beam glass rv">
+      <h3>What the sensor sees</h3>
+      <p>Two sensor layouts: (i) sends a laser beam out and collects the light that insects scatter back, (ii) measures how much an insect blocks the light between an emitter and a receiver. Either way, an insect crossing the laser beam changes the signal.</p>
+      <div class="bfig">
+        <div class="bleft">
+          <button class="zoom" data-src="img/esos-illustration.jpg" data-cap="ESOS: monostatic backscatter layout. A laser and telescope sit together and collect light scattered back by insects, about 10–100 m away"><img src="img/esos-illustration.jpg" alt="Illustration of the ESOS backscatter sensor: laser and telescope on one side, beam passing an insect toward trees"></button>
+          <button class="zoom" data-src="img/eboss-illustration.jpg" data-cap="eBoss: bistatic extinction layout. A laser source and collecting optics face each other, about 1–100 m apart, and an insect crossing the beam dims it"><img src="img/eboss-illustration.jpg" alt="Illustration of the eBoss bistatic sensor: laser source and collecting optics facing each other across an insect"></button>
+        </div>
+        <button class="zoom" data-src="img/wingbeat-signal.jpg" data-cap="A measured insect transit: the signal drops as the wings and body enter the beam, oscillating at the wingbeat frequency"><img src="img/wingbeat-signal.jpg" alt="Measured optical signal of one insect crossing the laser beam, annotated from wing entry to wing exit"></button>
+      </div>
+    </div>
+    <h3 class="h3sub rv">Selected projects</h3>
     <div class="projects" id="plist"></div>
     <div class="morewrap"><button class="btn" id="morebtn" aria-expanded="false" aria-controls="plist"></button></div>
   </section>
@@ -411,7 +414,7 @@ mb.addEventListener('click',()=>{const o=!pl.classList.contains('open');setMore(
 document.querySelectorAll('.slider').forEach(sl=>{const tr=sl.querySelector('.track'),n=tr.children.length,dots=[...sl.querySelectorAll('.dots button')];const cur=()=>Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));const go=i=>{i=(i+n)%n;tr.scrollTo({left:i*tr.clientWidth,behavior:'smooth'})};const mark=()=>{const c=cur();dots.forEach((d,i)=>d.setAttribute('aria-current',i===c))};sl.querySelector('.prev').addEventListener('click',()=>go(cur()-1));sl.querySelector('.next').addEventListener('click',()=>go(cur()+1));dots.forEach((d,i)=>d.addEventListener('click',()=>go(i)));tr.addEventListener('scroll',mark,{passive:true});tr.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(cur()+1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(cur()-1)}});mark();sl._go=go;sl._cur=cur;const pause=()=>{sl.dataset.t=Date.now()+8000};sl.addEventListener('pointerenter',()=>{sl.dataset.hold=1});sl.addEventListener('pointerleave',()=>{delete sl.dataset.hold});sl.addEventListener('focusin',()=>{sl.dataset.hold=1});sl.addEventListener('focusout',()=>{delete sl.dataset.hold});sl.addEventListener('click',pause);sl.addEventListener('touchstart',pause,{passive:true})});
 const onScreen=new Set(),sio=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?onScreen.add(e.target):onScreen.delete(e.target)),{threshold:.5});
 document.querySelectorAll('.slider').forEach(sl=>sio.observe(sl));
-if(!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(()=>{if(document.hidden||$('#lb').open)return;onScreen.forEach(sl=>{if(sl.dataset.hold||Date.now()<(+sl.dataset.t||0)||!sl.offsetParent)return;sl._go(sl._cur()+1)})},4000);
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(()=>{if(document.hidden||$('#lb').open)return;onScreen.forEach(sl=>{if(sl.dataset.hold||Date.now()<(+sl.dataset.t||0)||!sl.offsetParent)return;sl._go(sl._cur()+1)})},3000);
 $('#pubs').innerHTML=PUBS.map(([y,t,a,j,d,s])=>`<li class="glass rv"><div class="yr">${y}</div><div><div class="t">${esc(t)}${a.startsWith('T. Saha')?'<span class="badge">First author</span>':''}${s?`<span class="badge alt">${esc(s)}</span>`:''}</div><div class="m">${esc(a).replace('T. Saha','<b class="me">T. Saha</b>')} · <i>${esc(j)}</i>${d?` · <a href="https://doi.org/${d}" target="_blank" rel="noopener">DOI ↗</a>`:''}</div></div></li>`).join('');
 $('#talks').innerHTML=TALKS.map(c=>`<li class="conf glass rv"><h4>${esc(c.m)}</h4><p><span class="k">${esc(c.k)}:</span> ${esc(c.t)}</p><p class="meta"><span class="k">Location:</span> ${esc(c.loc)} &nbsp;|&nbsp; <span class="k">Date:</span> ${esc(c.d)}</p></li>`).join('');
 $('#service').innerHTML=SERV.map(([h,d])=>`<div class="vol glass rv"><h4>${esc(h)}</h4><p>${esc(d)}</p></div>`).join('');
