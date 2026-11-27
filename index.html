@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topu Saha · Optical Sensing</title>
+<meta name="description" content="Topu Saha, PhD in Applied Physics (NJIT). Optical sensor design, field deployment and signal analysis. Open to postdoc and optical engineering roles from January 2027.">
+<script>
+/* start at the top on every load: drop any #section from the URL and skip scroll restoration */
+try{if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash)history.replaceState(null,'',location.pathname+location.search)}catch(e){}
+addEventListener('load',()=>scrollTo(0,0));addEventListener('pageshow',e=>{if(e.persisted)scrollTo(0,0)});
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Contact icons: Font Awesome Free 6.5.2 (CC BY 4.0), fontawesome.com */
+/* VOICE: calm, precise, confident; a scientist who builds hardware.
+   IDEA: an optical bench. Panels behave like frosted optics; one NIR beam runs through the page.
+   PICTURE: a measured laser-extinction transit beside the intro.
+   COLOUR and TYPE: iridescent lens-coating light (cyan, magenta, lime) behind frosted glass; indigo accent. Inter Tight / Inter.
+   LAYOUT: floating glass nav, hero composition, outcome-first project panels, compact record below. */
+:root{color-scheme:dark;--bg:#0b0e14;--ink:#eef2f7;--mute:#9aa6b6;--glass:rgba(24,29,38,.55);--glass2:rgba(30,36,46,.45);--edge:rgba(255,255,255,.1);--line:rgba(255,255,255,.1);--hi:rgba(255,255,255,.12);--shadow:rgba(0,0,0,.45);--laser:#93a4ff;--cyan:#4fd3ea;--b1:#0f5a6b;--b2:#5a1d3e;--b3:#33461a;--fig:#f4f6f9}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Inter Tight",Inter,system-ui,sans-serif;line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.015em}
+a{color:inherit}
+img{max-width:100%;display:block}
+.aura{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.aura i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.75}
+.aura i:nth-child(1){width:52vmax;height:52vmax;background:var(--b1);top:-18vmax;left:-12vmax}
+.aura i:nth-child(2){width:44vmax;height:44vmax;background:var(--b2);top:18vh;right:-16vmax}
+.aura i:nth-child(3){width:40vmax;height:40vmax;background:var(--b3);bottom:-18vmax;left:22vw;opacity:.55}
+.glass{background:var(--glass);-webkit-backdrop-filter:blur(24px) saturate(170%);backdrop-filter:blur(24px) saturate(170%);border:1px solid var(--edge);box-shadow:inset 0 1px 0 var(--hi),0 12px 40px var(--shadow);border-radius:28px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(4vw,16px)}
+section{padding:clamp(40px,6vw,88px) 0 0}
+.h2{font-size:clamp(28px,4vw,42px);margin-bottom:8px}
+.lead{color:var(--mute);margin:0 0 28px}
+/* nav */
+nav{position:sticky;top:12px;z-index:20;margin:12px auto 0;width:min(1180px,calc(100% - 24px));display:flex;align-items:center;gap:8px;padding:6px 6px 6px 18px;border-radius:999px}
+nav .me{flex:none;margin-right:12px;font-weight:600;white-space:nowrap;text-decoration:none;font-family:"Inter Tight",sans-serif}
+nav .links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:0 1 auto;margin-left:auto}
+nav .links::-webkit-scrollbar{display:none}
+nav .links a{flex:none;text-decoration:none;font-size:14px;padding:10px 12px;border-radius:999px;color:var(--mute)}
+nav .links a:hover,nav .links a.on{color:var(--ink);background:var(--glass2)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;font:600 15px Inter,sans-serif;text-decoration:none;border:1px solid var(--edge);background:var(--glass2);color:var(--ink);cursor:pointer;white-space:nowrap}
+.btn{transition:background .2s ease,color .2s ease,border-color .2s ease}
+.btn.solid,.btn:focus-visible{background:var(--ink);color:var(--bg);border-color:transparent}
+@media (hover:hover){.btn:hover{background:var(--ink);color:var(--bg);border-color:transparent}}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.icon{width:44px;padding:0;justify-content:center}
+.btn svg{width:18px;height:18px}
+/* hero */
+.hero{padding-top:clamp(28px,5vw,56px)}
+.intro{padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;gap:18px}
+.who{display:flex;align-items:center;gap:clamp(16px,2.4vw,28px)}
+.avatar{width:clamp(84px,10vw,124px);height:clamp(84px,10vw,124px);border-radius:50%;flex:none;background:linear-gradient(135deg,var(--cyan),var(--laser));color:#fff;display:grid;place-items:center;font:600 clamp(28px,3vw,40px) "Inter Tight",Inter,system-ui,sans-serif;overflow:hidden;position:relative}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;padding:6px 12px;border-radius:999px;background:var(--glass2);border:1px solid var(--edge);white-space:nowrap}
+.chip b{color:var(--laser);font-weight:600}
+.hero h1{font-size:clamp(32px,4.4vw,52px);letter-spacing:-.025em}
+.deg{font:500 clamp(16px,1.6vw,20px) Inter,system-ui,sans-serif;color:var(--mute);margin-top:6px}
+.hl{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:clamp(16px,1.3vw,18px)}
+.hl li{position:relative;padding-left:24px}
+.hl li::before{content:"";position:absolute;left:0;top:.72em;width:12px;height:2px;background:var(--laser);box-shadow:0 0 8px var(--laser)}
+.hl strong{color:var(--ink)}
+.ctas{display:flex;flex-wrap:wrap;gap:10px}
+.photo{position:relative;overflow:hidden;padding:0;min-height:380px}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.photo figcaption{position:absolute;left:14px;right:14px;bottom:14px;padding:12px 16px;border-radius:18px;font-size:14px}
+/* sensor figure */
+.beam{margin-top:clamp(20px,3vw,32px);padding:clamp(20px,3vw,36px)}
+.bfig{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:14px;margin-top:20px;align-items:stretch}
+.bleft{display:grid;gap:12px;align-content:space-between}
+.bfig .zoom img{width:100%;height:auto}
+.bfig>.zoom{display:flex;align-items:center;justify-content:center}
+.bfig>.zoom img{width:100%;height:100%;object-fit:contain}
+.beam h3{font-size:clamp(22px,2.4vw,28px);margin-bottom:10px}
+.zoom{all:unset;cursor:zoom-in;display:block;border-radius:18px;overflow:hidden;background:var(--fig)}
+.zoom img{width:100%;height:auto}
+.zoom:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.beam p{margin:0;color:var(--mute)}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:14px}
+.stat{padding:20px 22px;border-radius:22px}
+.stat .n{font:600 clamp(28px,3.4vw,40px)/1 "Inter Tight",Inter,system-ui,sans-serif;letter-spacing:-.02em;white-space:nowrap}
+.stat .l{font-size:14px;color:var(--mute);margin-top:6px}
+/* focus */
+.focus{padding:clamp(22px,3vw,36px)}
+.focus h3{font-size:22px;margin-bottom:10px}
+.caps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 32px;margin:0;padding:0;list-style:none}
+.caps li{padding-left:22px;position:relative}
+.caps li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:2px;background:var(--laser);box-shadow:0 0 8px var(--laser)}
+/* projects */
+.projects{display:grid;gap:18px}
+.proj{display:flex;flex-direction:column;overflow:hidden}
+.media{padding:0 14px 14px;max-width:min(100%,54vh,680px);width:100%;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-flow:dense;gap:10px}
+.proj .media button{width:100%}
+.media .wide{grid-column:1/-1}
+.media .tall{grid-row:span 2}
+.media button{all:unset;cursor:zoom-in;display:flex;align-items:center;justify-content:center;width:100%;box-sizing:border-box;border-radius:18px;overflow:hidden;background:var(--fig)}
+.media button:focus-visible{outline:2px solid var(--cyan)}
+.media img{width:100%;height:auto}
+.slider{position:relative;margin:0 14px 14px}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+.track::-webkit-scrollbar{display:none}
+.track:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.slide{all:unset;flex:0 0 100%;scroll-snap-align:center;box-sizing:border-box;height:clamp(240px,min(38vw,56vh),440px);padding:12px;display:flex;align-items:center;justify-content:center;cursor:zoom-in}
+.slide img{max-width:100%;max-height:100%;width:auto;height:auto;border-radius:12px}
+.slide:focus-visible{outline:2px solid var(--cyan);outline-offset:-4px;border-radius:20px}
+.snav{position:absolute;top:calc(50% - 40px);width:44px;height:44px;border-radius:50%;border:1px solid var(--edge);background:rgba(12,15,22,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:var(--ink);font-size:22px;line-height:1;cursor:pointer;display:grid;place-items:center}
+.snav.prev{left:10px}.snav.next{right:10px}
+.sfoot{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:8px;font-size:13px;color:var(--mute)}
+.dots{display:flex}
+.dots button{all:unset;width:24px;height:24px;display:grid;place-items:center;cursor:pointer}
+.dots button::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .2s,width .2s}
+.dots button[aria-current=true]::before{background:var(--ink);width:18px;border-radius:4px}
+.dots button:focus-visible{outline:2px solid var(--cyan);border-radius:6px}
+.projects .more{display:none}
+.projects:not(.open) .home .slider{display:none}
+.projects.open .home .media{display:none}
+.projects.open .more{display:flex}
+.projects.open .mini.more{display:block}
+.morewrap{display:flex;justify-content:center;margin-top:18px}
+.ptext{padding:clamp(20px,3vw,36px) clamp(20px,3vw,36px) 20px;display:flex;flex-direction:column;gap:14px}
+.ptext h3{font-size:clamp(22px,2.4vw,28px)}
+.result{font-size:17px;font-weight:500;margin:0}
+.result em{font-style:normal;color:var(--laser);font-weight:600}
+.pbm{display:grid;gap:10px;margin:0}
+.pbm div{display:grid;grid-template-columns:72px minmax(0,1fr);gap:10px;font-size:15px}
+.pbm dt{color:var(--mute);font-size:13px;padding-top:2px}
+.pbm dd{margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:12.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line)}
+.note{font-size:13px;color:var(--mute)}
+.mini{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.mini .glass{padding:22px 26px}
+/* record */
+.subh{font-size:22px;margin:4px 0 14px}
+.edulist{display:grid;gap:14px;margin-top:20px}
+.edu-card{padding:clamp(20px,2.6vw,28px) clamp(20px,3vw,34px)}
+.edu-text{line-height:1.6;color:var(--mute);font-size:15.5px}
+.edu-text b{color:var(--ink)}
+.edu-head{margin-bottom:6px}
+.edu-degree{font:600 18px "Inter Tight",Inter,system-ui,sans-serif;color:var(--ink)}
+.edu-text a{color:var(--cyan);text-decoration:none}
+.edu-text a:hover{text-decoration:underline}
+.ilink{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:8px;vertical-align:-6px;margin-left:2px}
+.ilink:hover{background:var(--glass2)}
+.li{width:15px;height:15px}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.card{padding:clamp(20px,3vw,30px)}
+.card h3{font-size:20px}
+.when{font-size:13px;color:var(--mute);white-space:nowrap}
+.row{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.card ul{margin:10px 0 0;padding-left:18px}
+.card li{margin:6px 0}
+.sub{color:var(--mute);font-size:15px;margin:2px 0 0}
+.sub .k{color:var(--ink)}
+.courses{margin:6px 0 0;padding-left:22px;color:var(--mute);font-size:15px}
+.courses li{margin:4px 0}
+.card .ilink{color:var(--cyan)}
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.skills .tags span{font-size:14px;padding:6px 12px;background:var(--glass2);border-color:var(--edge)}
+.pubs{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.pubs li{padding:16px 20px;border-radius:20px;display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;align-items:start}
+.pubs .yr{font:600 15px "Inter Tight",Inter,system-ui,sans-serif;color:var(--mute);padding-top:2px}
+.pubs .t{font-weight:600}
+.pubs .me{color:var(--ink);font-weight:600}
+.pubs .m{font-size:14px;color:var(--mute)}
+.pubs .m a{color:var(--cyan);text-decoration:none;white-space:nowrap}
+.badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--laser);color:#fff;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.badge.alt{background:transparent;color:var(--mute);border:1px solid var(--line)}
+.conf-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.conf{padding:16px 22px;border-radius:20px}
+.conf h4,.vol h4{margin:0 0 6px;font:600 16.5px "Inter Tight",Inter,system-ui,sans-serif;color:var(--ink)}
+.conf p{margin:2px 0;font-size:14.5px;color:var(--mute)}
+.conf .k{color:var(--ink);font-weight:600}
+.conf .meta{font-size:13.5px}
+.vol-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.vol{padding:18px 18px 16px;border-radius:20px;text-align:center}
+.vol p{margin:0;font-size:13.5px;color:var(--mute);line-height:1.55}
+.contact{padding:clamp(24px,4vw,48px);display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+.contact h2{font-size:clamp(28px,4vw,44px)}
+.mail{font:600 clamp(18px,2vw,22px) "Inter Tight",Inter,system-ui,sans-serif;overflow-wrap:anywhere}
+.links2{display:flex;flex-wrap:nowrap;gap:8px}
+footer{padding:40px 0 48px;text-align:center;font-size:13px;color:var(--mute)}
+dialog{border:0;padding:0;background:transparent;max-width:min(1100px,94vw);color:var(--ink)}
+dialog::backdrop{background:rgba(5,8,12,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+dialog .glass{padding:12px}
+dialog img{border-radius:16px;background:var(--fig);max-height:76vh;width:auto;margin:0 auto}
+dialog p{margin:10px 8px 4px;font-size:15px}
+dialog .x{position:absolute;top:20px;right:20px}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:var(--bg)}}
+@media (max-width:900px){.caps{grid-template-columns:minmax(0,1fr)}.cols,.contact,.skills{grid-template-columns:minmax(0,1fr)}.photo{min-height:320px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.media{max-width:628px;width:100%;margin:0 auto}}
+@media (max-width:600px){.bfig{grid-template-columns:minmax(0,1fr)}.bfig>.zoom img{height:auto}nav{padding-left:14px}nav .me{font-size:15px}nav .links a{padding:10px 9px}.photo{min-height:260px}.pbm div{grid-template-columns:minmax(0,1fr);gap:0}.pubs li{grid-template-columns:minmax(0,1fr);gap:4px}.snav{width:38px;height:38px;font-size:19px}.media:not(.collage):not(.pair) button{grid-column:1/-1}.stat{padding:16px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}}
+@media (max-width:760px){.links2 .btn{flex:1;justify-content:center;padding:0}.links2 .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.links2 .btn svg{width:20px;height:20px}}
+</style>
+</head>
+<body>
+<div class="aura" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<nav class="glass" aria-label="Sections">
+  <a class="me" href="#top">Topu Saha</a>
+  <div class="links">
+    <a href="#education">Education</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#publications">Publications</a><a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <div class="intro glass rv">
+      <div class="who">
+        <div class="avatar">TS<img src="img/headshot.jpg" alt="Portrait of Topu Saha" onerror="this.remove()"></div>
+        <div><h1>Topu Saha</h1><div class="deg">PhD in Applied Physics</div></div>
+      </div>
+      <div class="chips"><span class="chip">Optical Sensing</span><span class="chip">Laser-based Sensor</span><span class="chip">Near-Infrared</span><span class="chip">THz Spectroscopy</span><span class="chip">Signal Processing</span></div>
+      <div class="hl"><p style="margin:0"><b>Expertise:</b> sensor instrumentation and performance evaluation · hardware and software integration for data acquisition · optical signal analysis and feature extraction · machine-learning classification</p></div>
+      <div class="ctas">
+        <a class="btn" href="Saha_Resume.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>Resume (1 page)</a>
+        <a class="btn" href="Saha_CV.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>Full CV</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="beam glass rv">
+    <h3>What the sensor sees</h3>
+    <p>Two sensor layouts: (i) sends a laser beam out and collects the light that insects scatter back, (ii) measures how much an insect blocks the light between an emitter and a receiver. Either way, an insect crossing the laser beam changes the signal.</p>
+    <div class="bfig">
+      <div class="bleft">
+        <button class="zoom" data-src="img/esos-illustration.jpg" data-cap="ESOS: monostatic backscatter layout. A laser and telescope sit together and collect light scattered back by insects, about 10–100 m away"><img src="img/esos-illustration.jpg" alt="Illustration of the ESOS backscatter sensor: laser and telescope on one side, beam passing an insect toward trees"></button>
+        <button class="zoom" data-src="img/eboss-illustration.jpg" data-cap="eBoss: bistatic extinction layout. A laser source and collecting optics face each other, about 1–100 m apart, and an insect crossing the beam dims it"><img src="img/eboss-illustration.jpg" alt="Illustration of the eBoss bistatic sensor: laser source and collecting optics facing each other across an insect"></button>
+      </div>
+      <button class="zoom" data-src="img/wingbeat-signal.jpg" data-cap="A measured insect transit: the signal drops as the wings and body enter the beam, oscillating at the wingbeat frequency"><img src="img/wingbeat-signal.jpg" alt="Measured optical signal of one insect crossing the laser beam, annotated from wing entry to wing exit"></button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat glass rv"><div class="n">25+</div><div class="l"> months of field operation</div></div>
+    <div class="stat glass rv"><div class="n">3</div><div class="l">instruments tested on-site</div></div>
+    <div class="stat glass rv"><div class="n">~1 M</div><div class="l">insect signals recorded</div></div>
+    <div class="stat glass rv"><div class="n">6</div><div class="l">journal papers published</div></div>
+  </div>
+
+  <section id="focus">
+    <h2 class="h2 rv">What I bring</h2>
+    <p class="lead rv">Hands-on optics, sensing systems that survive outdoors, and the analysis that turns raw sensor data into physically meaningful results.</p>
+    <div class="focus glass rv"><h3>From optical bench to field data</h3><p style="margin:0 0 22px">I design and align the optics, build prototypes in the laboratory, integrate the optics, electronics and software, perform noise budgets, and keep sensors running through long field campaigns.</p><ul class="caps" id="caps"></ul></div>
+  </section>
+
+  <section id="education">
+    <h2 class="h2 rv">Education</h2>
+    <div class="edulist">
+      <div class="edu-card glass rv">
+        <div class="edu-text">
+          <div class="row edu-head"><div class="edu-degree">Doctor of Philosophy (PhD) in Applied Physics</div><span class="when">September 2021 – December 2026</span></div>
+          <div>Department of Physics</div>
+          <div>New Jersey Institute of <span style="white-space:nowrap">Technology <a class="ilink" href="https://www.njit.edu/" target="_blank" rel="noopener" aria-label="Open the NJIT website"><svg class="li" viewBox="0 0 640 512" fill="currentColor" aria-hidden="true"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg></a></span></div>
+          <div>CGPA: <b>3.63</b> on a scale of 4.00</div>
+          <div>Credit Earned: 36.00 | <a href="https://drive.google.com/drive/folders/14TNsOZOjiy2Q49KI5XeG1lzRKqsRAL-K?usp=sharing" target="_blank" rel="noopener">Course Syllabus</a></div>
+          <div>Selected Courses: Classical Mechanics, Quantum Mechanics, Statistical Mechanics, Classical Electrodynamics, Applied Statistics, Machine Learning, Intelligent Sensing</div>
+          <div><b>Dissertation:</b> Optical Sensing Methods for Monitoring Flying Insect Abundance: Development, Field Deployment, and Analysis</div>
+        </div>
+      </div>
+      <div class="edu-card glass rv">
+        <div class="edu-text">
+          <div class="row edu-head"><div class="edu-degree">Bachelor of Science (B.Sc.) in Physics</div><span class="when">January 2016 – December 2019</span></div>
+          <div>Department of Physics</div>
+          <div>Jashore University of Science and <span style="white-space:nowrap">Technology <a class="ilink" href="https://just.edu.bd/" target="_blank" rel="noopener" aria-label="Open the JUST website"><svg class="li" viewBox="0 0 640 512" fill="currentColor" aria-hidden="true"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg></a></span></div>
+          <div>CGPA: <b>3.81</b> on a scale of 4.00</div>
+          <div>Credit Earned: 164.00 | <a href="https://drive.google.com/file/d/1bYe-AfCX8arTTEB7s3uYlLnrD48GykUN/view?usp=sharing" target="_blank" rel="noopener">Course Syllabus</a></div>
+          <div>Selected Courses: Optics, Differential Equations, Methods of Mathematical Physics, Semiconductor and Electronics Devices, Pulse and Digital Electronics, Crystallography and Spectroscopy</div>
+          <div>Title of UG Project: Study the Morphology of Organic Molecules on Substrate by Analytical <span style="white-space:nowrap">Microscopy <a class="ilink" href="https://drive.google.com/file/d/11EwEt5ZimlcJsyLWErPYIZzQStNQMqou/view?usp=sharing" target="_blank" rel="noopener" aria-label="Open the undergraduate project report"><svg class="li" viewBox="0 0 640 512" fill="currentColor" aria-hidden="true"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg></a></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2 class="h2 rv">Experience</h2>
+    <p class="lead rv">Five years in an applied optics lab, from bench alignment to unattended field systems.</p>
+    <div class="cols">
+      <div class="card glass rv">
+        <div class="row"><h3>Graduate Research Assistant</h3><span class="when">Sep 2021 – present</span></div>
+        <p class="sub">Applied Optics Lab, NJIT · PI: Dr. Benjamin Thomas<br> Funded by NIH/NIAID and NJIT Center for Photonics Innovation</p>
+        <ul>
+          <li>Designed and built a fully autonomous, solar-powered optical sensor with Raspberry Pi data acquisition for ground-based remote sensing.</li>
+          <li>Extracted FFT wingbeat frequency, extinction cross-section and cepstral features from optical signals; analyzed long-term data on abundance, biomass and circadian patterns under changing weather.</li>
+          <li>Derived empirical corrections for temperature-dependent wingbeat frequency and orientation-dependent cross-section, improving classification.</li>
+          <li>Built a THz-TDS polarimetry pipeline to map retardance and birefringence of anisotropic materials.</li>
+          <li>Mentored PhD, master's and undergraduate researchers.</li>
+        </ul>
+      </div>
+      <div style="display:grid;gap:14px;align-content:start">
+        <div class="card glass rv">
+          <div class="row"><h3>Graduate Teaching Assistant</h3><span class="when">Sep 2021 – present</span></div>
+          <p class="sub">Department of Physics, NJIT</p>
+          <ul><li>Instructor for undergraduate physics labs; mentored students on experimental techniques and data analysis.</li></ul>
+          <p class="sub" style="margin-top:12px"><span class="k">Courses conducted:</span></p>
+          <ol class="courses">
+            <li>Physics I: General Physics Lab <a class="ilink" href="https://drive.google.com/file/d/1t2EX_nRn3s6KTvfeGiteJD4zMDSS8dvG/view?usp=sharing" target="_blank" rel="noopener" aria-label="Open the Physics I lab course file"><svg class="li" viewBox="0 0 640 512" fill="currentColor" aria-hidden="true"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg></a></li>
+            <li>Physics II: Electricity and Magnetism Lab <a class="ilink" href="https://drive.google.com/file/d/1TpG82eWlF1PCwraB196Vh4OCRDQIHrmJ/view?usp=sharing" target="_blank" rel="noopener" aria-label="Open the Physics II lab course file"><svg class="li" viewBox="0 0 640 512" fill="currentColor" aria-hidden="true"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg></a></li>
+            <li>Physics III: Modern Physics Lab <a class="ilink" href="https://drive.google.com/file/d/1aSaGRSEjQtpzk-LcfQt2N6GF2NgoZgw1/view?usp=sharing" target="_blank" rel="noopener" aria-label="Open the Physics III lab course file"><svg class="li" viewBox="0 0 640 512" fill="currentColor" aria-hidden="true"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg></a></li>
+          </ol>
+        </div>
+        <div class="card glass rv">
+          <h3>Collaborations</h3>
+          <ul>
+            <li>Wadsworth Center, State Department of Health, NY <span class="when">· ongoing</span></li>
+            <li>Hudson Regional Health Commission, NJ <span class="when">· 2021 – 2023</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="h2 rv">Selected projects</h2>
+    <p class="lead rv"></p>
+    <div class="projects" id="plist"></div>
+    <div class="morewrap"><button class="btn" id="morebtn" aria-expanded="false" aria-controls="plist"></button></div>
+  </section>
+
+  <section id="skills">
+    <h2 class="h2 rv">Skills</h2>
+    <p class="lead rv"></p>
+    <div class="skills" id="skl"></div>
+  </section>
+
+  <section id="publications">
+    <h2 class="h2 rv">Publications</h2>
+    <p class="lead rv">Scientific Reports, Applied Physics B: Lasers and Optics, Insects. Full list on <a href="https://scholar.google.com/citations?user=DpBvt0EAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+    <ul class="pubs" id="pubs"></ul>
+    <h3 class="subh rv" style="margin-top:36px">Conference &amp; Presentations</h3>
+    <ul class="conf-list" id="talks"></ul>
+    <h3 class="subh rv" style="margin-top:36px">Professional &amp; Voluntary Activities</h3>
+    <div class="vol-grid" id="service"></div>
+  </section>
+
+  <section id="contact">
+    <div class="contact glass rv">
+      <div>
+        <h2>Let's talk</h2>
+        <p class="lead" style="margin:10px 0 0;max-width:none">Open to work, starting February 2027.</p>
+      </div>
+      <div style="display:grid;gap:14px">
+        <div class="links2">
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdA8VvcHi4eNZ7vJBTPYrzTO5VnS1_2AvCP05tdFJ1ARNvo-Q/viewform" target="_blank" rel="noopener"><svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg><span class="lbl">Send Message</span></a>
+          <a class="btn" href="https://www.linkedin.com/in/topuphyjust/" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg><span class="lbl">LinkedIn</span></a>
+          <a class="btn" href="https://scholar.google.com/citations?user=DpBvt0EAAAAJ&hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M390.9 298.5c0 0 0 .1 .1 .1c9.2 19.4 14.4 41.1 14.4 64C405.3 445.1 338.5 512 256 512s-149.3-66.9-149.3-149.3c0-22.9 5.2-44.6 14.4-64h0c1.7-3.6 3.6-7.2 5.6-10.7c4.4-7.6 9.4-14.7 15-21.3c27.4-32.6 68.5-53.3 114.4-53.3c33.6 0 64.6 11.1 89.6 29.9c9.1 6.9 17.4 14.7 24.8 23.5c5.6 6.6 10.6 13.8 15 21.3c2 3.4 3.8 7 5.5 10.5zm26.4-18.8c-30.1-58.4-91-98.4-161.3-98.4s-131.2 40-161.3 98.4L0 202.7 256 0 512 202.7l-94.7 77.1z"/></svg><span class="lbl">Google Scholar</span></a>
+          <a class="btn" href="https://orcid.org/0000-0003-1568-6802" target="_blank" rel="noopener"><svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M294.75 188.19h-45.92V342h47.47c67.62 0 83.12-51.34 83.12-76.91 0-41.64-26.54-76.9-84.67-76.9zM256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm-80.79 360.76h-29.84v-207.5h29.84zm-14.92-231.14a19.57 19.57 0 1 1 19.57-19.57 19.64 19.64 0 0 1-19.57 19.57zM300 369h-81V161.26h80.6c76.73 0 110.44 54.83 110.44 103.85C410 318.39 368.38 369 300 369z"/></svg><span class="lbl">ORCID</span></a>
+          <a class="btn" href="https://www.researchgate.net/profile/Topu-Saha" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M0 32v448h448V32H0zm262.2 334.4c-6.6 3-33.2 6-50-14.2-9.2-10.6-25.3-33.3-42.2-63.6-8.9 0-14.7 0-21.4-.6v46.4c0 23.5 6 21.2 25.8 23.9v8.1c-6.9-.3-23.1-.8-35.6-.8-13.1 0-26.1.6-33.6.8v-8.1c15.5-2.9 22-1.3 22-23.9V225c0-22.6-6.4-21-22-23.9V193c25.8 1 53.1-.6 70.9-.6 31.7 0 55.9 14.4 55.9 45.6 0 21.1-16.7 42.2-39.2 47.5 13.6 24.2 30 45.6 42.2 58.9 7.2 7.8 17.2 14.7 27.2 14.7v7.3zm22.9-135c-23.3 0-32.2-15.7-32.2-32.2V167c0-12.2 8.8-30.4 34-30.4s30.4 17.9 30.4 17.9l-10.7 7.2s-5.5-12.5-19.7-12.5c-7.9 0-19.7 7.3-19.7 19.7v26.8c0 13.4 6.6 23.3 17.9 23.3 14.1 0 21.5-10.9 21.5-26.8h-17.9v-10.7h30.4c0 20.5 4.7 49.9-34 49.9zm-116.5 44.7c-9.4 0-13.6-.3-20-.8v-69.7c6.4-.6 15-.6 22.5-.6 23.3 0 37.2 12.2 37.2 34.5 0 21.9-15 36.6-39.7 36.6z"/></svg><span class="lbl">ResearchGate</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>© 2026 Topu Saha · New Jersey, USA</footer>
+
+<dialog id="lb" aria-label="Figure"><div class="glass"><button class="btn icon x" id="lbx" aria-label="Close">✕</button><img id="lbi" alt=""><p id="lbc"></p></div></dialog>
+
+<script>
+{
+const CAPS=["Optical design and alignment: beam shaping, collimation over long-path, NIR detection, laser–detector calibration","Instrument development: bistatic and monostatic laser sensors, and a THz-TDS polarimetry pipeline","System integration: solar power, Raspberry Pi and embedded Linux, data acquisition, remote data over SSH","Field validation: 25+ months across three instruments, noise budgets and SNR, benchmarking against traps","Signal processing and ML: feature extraction, empirical correction models, classification in Python and MATLAB","Publishing: seven papers (six published, one under review) and an invited talk at Entomology 2025"];
+const P=[
+ {t:"Autonomous solar-powered optical sensor",res:'A laser sensor that runs <em>unattended in the field</em> and sends its data remotely to the lab.',p:"Long-term insect monitoring needs sensors that run in public spaces with no grid power and without on-site visits.",b:"A solar-powered, compact, portable, bistatic near-infrared laser-extinction sensor (980 nm, 5 mW, eye-safe) with Raspberry Pi based data acquisition. A multi-threaded Python pipeline detects events in real time and transfers data over SSH.",tags:["Optical design","Laser–detector alignment","Embedded Linux","Solar power","Python"],pair:1,img:[["optical-layout.jpg","System layout: emitter, beam path, and receiver with remote data setup"],["solar-eboss-crop.jpg","The solar-powered sensor deployed outdoors"],["electronics-crop.jpg","Receiver electronics: Raspberry Pi with DAQ hat and regulated power"]],extra:[["eboss-rooftop.jpg","Rooftop deployment: emitter and receiver units facing each other across the open path"],["eboss-software.jpg","Two-thread acquisition software: continuous recording, real-time threshold event detection, and transfer of each day's folder to the lab computer"]]},
+ {t:"Multi-season field campaigns",res:'<em>25+ months</em> of field operation, more than <em>one million</em> insect observations.',p:"Physical traps give sparse, labor-heavy counts. Ecologists and public-health agencies need continuous, non-destructive data.",b:"Deployed and maintained three instruments across field sites. Evaluated aerial and biomass density to temperature, humidity and wind; built an empirical temperature correction model for wingbeat frequency.",tags:["Field deployment","Time-series analysis","Statistics","Continuous monitoring","Insect abundance"],img:[["field-tent.jpg","Field station: optical sensors and computer are protected by a tent"],["field-density-2022.jpg","Aerial and biomass densities across the 2022 campaign: daily and weekly averages"],["season.jpg","Aerial density (A) and biomass density (B) by date and time of day at 1-minute resolution, 2022; grey lines mark sunrise and sunset"]],extra:[["field-weather.jpg","Average densities by temperature (A) and wind speed (B), and by temperature and relative humidity (C, D); white areas mean no data"]]},
+ {t:"Temperature correction of wingbeat frequency",res:'Wingbeat frequency rises <em>2.0 to 9.6 Hz per °C</em>; a general model corrects it to a 20 °C reference.',p:"Insects beat their wings faster in warm air, so the same species can look different from day to day.",b:"From 2022 field observations at Secaucus, NJ, insects were grouped into five clusters. Each cluster's wingbeat frequency was tracked from 10 to 38 °C, and a second-degree polynomial fit was used to correct any wingbeat frequency to 20 °C.",tags:["Clustering","Regression","Environmental correction","Field data"],img:[["temp-wbf-map.jpg","Wingbeat frequency of each event against the air temperature recorded at the time of transit"],["temp-clusters.jpg","(A) Wingbeat frequency vs wing-to-body cross-section ratio, with clusters C1 to C5; (B) BIC for Gaussian mixture and K-means models, with the optimal cluster number at the elbow"],["temp-cluster-fits.jpg","Average wingbeat frequency in 0.5 °C bins for each cluster, with a linear fit per cluster"],["temp-slope-model.jpg","Second-degree polynomial fit to the five cluster slopes; error bars show the spread of wingbeat frequency and the slope uncertainty"],["temp-corrected.jpg","Wingbeat frequency distribution before (A) and after (B) correction to a 20 °C reference"]]},
+ {t:"Optical sensor vs. light traps for mosquito monitoring",res:'The optical sensor monitors mosquito density at <em>one-minute</em> time resolution.',p:"Mosquito-control programs count mosquitoes with light traps without knowing the details of when mosquitoes fly.",b:"Male and female mosquito clusters were separated from other groups of insects and their daily aerial density was compared with eight Hudson Regional Health Commission light traps.",tags:["Benchmarking","Validation","Field deployment","Physical traps"],img:[["trap-map.jpg","Study area: the sensor site (blue) and the eight county light traps (red)"],["mosquito-season.jpg","Mosquito aerial density across 2022, by sex, and by time of day"],["trap-correlation.jpg","Trap counts vs. sensor aerial density over the season, and their correlation (r = 0.76)"]]},
+ {t:"Optical features and ML classification",res:'MFCC features lifted mosquito sex classification to <em>98.8%</em> and species-level accuracy up to <em>84.1%</em>.',p:"Wingbeat frequency alone cannot reliably separate mosquito species or sexes from a single optical signal.",b:"A purely signal-processing pipeline to improve classification accuracy: FFT wingbeat frequency and mel-frequency cepstral coefficients (MFCCs) were used to train supervised models with labelled mosquito transit signals.",tags:["Signal processing","Feature extraction","Supervised learning","SVM","Confusion matrices"],img:[["wbf-histograms.jpg","Wingbeat frequency distributions by species and sex (males blue, females orange)"],["mfcc-boxplots.jpg","The 13 MFCC coefficients by species and sex"],["ml-pipeline.jpg","Classification pipeline: wingbeat frequency plus 13 MFCCs, Gaussian SVM with 5-fold cross-validation and an 80/20 train-test split"],["sex-classification.jpg","Sex classification: MFCC model 98.8% vs wingbeat-frequency model 84.9% (validation)"]],extra:[["species-classification.jpg","Four-species classification: MFCC model 84.1% vs wingbeat-frequency model 44.4% (validation)"],["mfcc-extraction.jpg","Flowchart of MFCC feature extraction from an optical signal"]]},
+ {t:"Body orientation from optical signals",res:'Estimated an insect\'s <em>body orientation</em> from its optical transit signal.',p:"An insect's optical cross-section changes with how it is turned in the beam, which adds error to size and species estimates.",b:"Synchronized a camera with a single-pixel photodetector across a uniform NIR beam, simulated optical signals over yaw and pitch angles, and estimated orientation from cepstral features.",tags:["Sensor fusion","Simulation","Flight angle","Imaging","Cross-section","Blender"],img:[["orientation-setup.jpg","Camera and photodetector fusion setup"],["orientation-sim.jpg","Rendered images of the flying insect at different yaw angles (θ), used in the numerical simulation"]],extra:[["orient-transit.jpg","An insect transit signal through the laser beam (left), with direct and reflected camera views used for 3D tracking (right)"],["orient-prediction.jpg","Predicted vs measured yaw and pitch angles in the symmetry-reduced range"],["orient-correction.jpg","Probability density of measured and orientation-corrected body cross-section"]]},
+ {t:"Terahertz polarimetric mapping",res:'Pixel-by-pixel maps of <em>birefringence and fast-axis orientation</em> in an insect wing sample.',p:"Characterize anisotropic microstructure, such as chitin orientation in an insect wing, without damaging the sample.",b:"A THz time-domain polarimetry pipeline on a TeraMetrix T-Ray 5000: four polarizer–analyzer configurations, a 0.25 mm raster scan and a 0.5–1.5 THz analysis band, with Jones-matrix analysis at every pixel.",tags:["THz-TDS","Polarimetry","Jones calculus","Spatial mapping"],stack:2,img:[["thz-setup.jpg","THz-TDS setup: T-Ray emitter and receiver with a wire-grid polarizer and analyzer around the wing sample"],["thz-maps.jpg","Optical path excess and path-integrated birefringence (Δn·d) maps of a cicada forewing"]],extra:[["thz-pulse.jpg","Measured THz time-domain pulse"],["thz-retardance.jpg","Retardance dispersion δ(f) across the 0.5 to 1.5 THz band (wing average)"],["thz-fast-axis.jpg","Fast-axis orientation map from per-pixel Jones-matrix analysis"]]}
+];
+const PUBS=[
+ [2026,"Terahertz polarimetric mapping of form birefringence and chitin orientation in an insect wing","T. Saha, P. Barden, T. Hofmann, J. F. Federici, and B. P. Thomas","J. Infrared, Millimeter, and Terahertz Waves",null,"Under review"],
+ [2026,"Advancing insect monitoring: analysis of mel-frequency cepstral coefficients from optical signals for body orientation estimation","T. Saha and B. P. Thomas","Applied Physics B 132, 80","10.1007/s00340-026-08683-4"],
+ [2025,"Method for UAV propeller characterization using frequency analysis of lidar signals","A. P. Genoud, T. Saha, J. Torsiello, I. Gatley, and B. P. Thomas","Applied Physics B 131, 171","10.1007/s00340-025-08533-9"],
+ [2024,"Monitoring mosquito abundance: comparing an optical sensor with a trapping method","T. Saha, A. P. Genoud, G. M. Williams, G. J. Russell, and B. P. Thomas","Insects 15(8), 584","10.3390/insects15080584"],
+ [2024,"Temperature dependency of insect's wingbeat frequencies: an empirical approach to temperature correction","T. Saha, A. P. Genoud, J. H. Park, and B. P. Thomas","Insects 15(5), 342","10.3390/insects15050342"],
+ [2023,"Monitoring the abundance of flying insects and atmospheric conditions during a 9-month campaign using an entomological optical sensor","T. Saha, A. P. Genoud, G. M. Williams, and B. P. Thomas","Scientific Reports 13, 15606","10.1038/s41598-023-42884-7"],
+ [2023,"Insect biomass density: measurement of seasonal and daily variations using an entomological optical sensor","A. P. Genoud, T. Saha, G. M. Williams, and B. P. Thomas","Applied Physics B 129, 26","10.1007/s00340-023-07973-5"]
+];
+const TALKS=[
+ {m:"TechConnect World 2026",k:"Presentation",t:"Entomological Photonic Sensors: Tracking Insects with Lasers",loc:"Raleigh, NC 27601",d:"March 2026"},
+ {m:"Entomology 2025, Entomological Society of America",k:"Distinguished Speaker",t:"Advances in Monitoring Flying Insects with Photonic Sensors",loc:"Portland, OR 97232",d:"November 2025"},
+ {m:"Entomology 2023, Entomological Society of America",k:"Poster",t:"Photonic monitoring of the aerial density and biomass density of flying insects during a 9-month campaign",loc:"National Harbor, MD 20745",d:"November 2023"},
+ {m:"XXVI International Congress of Entomology",k:"Oral Presentation",t:"Near-Infrared Optical Sensors to Monitor Flying Insects",loc:"Helsinki, Finland",d:"July 2022"},
+ {m:"Mid-Atlantic Section of the American Physical Society",k:"Topic",t:"Monitoring the aerial density and circadian rhythm of flying insects using a near-infrared stand-off optical sensor",loc:"New Brunswick, NJ 08901",d:"November 2021"}];
+const SERV=[
+ ["Peer Reviewer","Reviews manuscripts for Scientific Reports, ensuring research quality and integrity. (2024 onward)"],
+ ["Invited Panelist","Discussed effective teaching practices at NJIT's international TA workshop. (August 2025)"],
+ ["Invited Judge","Evaluated undergraduate engineering projects at NJIT's first-year engineering showcase. (February 2025)"],
+ ["General Secretary","Led NJIT's Bangladeshi Graduate Student Association, fostering community and diversity. (2024 – 2025)"],
+ ["Department Representative","Served as liaison between the Physics department and NJIT's GSA. (2021 – 2022)"]];
+const SK=[["Optics and instrumentation",["Optical sensor design","Characterization","Laser–detector alignment","Calibration","Beam shaping","NIR detection","Bistatic and monostatic layouts","Lidar","THz-TDS (T-Ray 5000)","Oscilloscope","Signal generator","Fault analysis"]],["Signal processing and ML",["Noise filtering","SNR and noise budgets","FFT and spectral analysis","MFCC features","Event detection","Time-series analysis","Statistical analysis","Supervised learning","Clustering","Image analysis (OpenCV, PIL)"]],["Software and embedded",["Python (NumPy, pandas, SciPy, scikit-learn)","MATLAB","Raspberry Pi / Linux","Multithreaded acquisition","SSH data transfer","Spectrum SBench","VS Code"]],["Hardware and prototyping",["Solar power design","Charge controllers","Low-power field electronics","3D-printed parts (Tinkercad)","Blender Python API simulation"]]];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+$('#caps').innerHTML=CAPS.map(x=>{const i=x.indexOf(':');return `<li><strong>${esc(x.slice(0,i))}</strong>${esc(x.slice(i))}</li>`}).join('');
+const AR={'solar-eboss-crop.jpg':1.331,'electronics-crop.jpg':1.33,'solar-eboss.jpg':.742,'optical-layout.jpg':2.041,'electronics.jpg':1.411,'field-tent.jpg':1.1,'season.jpg':1.619,'wingbeat-map.jpg':1.279,'trap-map.jpg':.746,'mosquito-season.jpg':1.34,'trap-correlation.jpg':2.881,'sex-classification.jpg':2.289,'wbf-histograms.jpg':1.02,'mfcc-boxplots.jpg':1.047,'orientation-setup.jpg':2.963,'orientation-sim.jpg':1.81,'thz-maps.jpg':2.247,'thz-transmission.jpg':2.73,'thz-setup.jpg':3.888};
+const fig=(f,c)=>`<button class="${c}" style="--a:${AR[f[0]]||1.5}" data-src="img/${f[0]}" data-cap="${esc(f[1])}"><img src="img/${f[0]}" alt="${esc(f[1])}" loading="lazy"></button>`;
+const media=p=>{if(p.stack)return `<div class="media">${p.img.slice(0,p.stack).map(f=>fig(f,'wide')).join('')}</div>`;const ar=p.img.map(f=>AR[f[0]]||1.5),mx=ar.indexOf(Math.max(...ar));return `<div class="media${p.img[0][2]?' collage':''}${p.pair?' pair':''}">${p.img.map((f,i)=>fig(f,p.img[0][2]?(i===0?'tall':''):(p.img.length>2&&i===mx?'wide':''))).join('')}</div>`};
+const slider=p=>{const all=p.img.concat(p.extra||[]);return `<div class="slider"><div class="track" tabindex="0" aria-label="Images for ${esc(p.t)}">${all.map(f=>`<button class="slide" data-src="img/${f[0]}" data-cap="${esc(f[1])}"><img src="img/${f[0]}" alt="${esc(f[1])}" loading="lazy"></button>`).join('')}</div><button class="snav prev" aria-label="Previous image">‹</button><button class="snav next" aria-label="Next image">›</button><div class="sfoot"><div class="dots">${all.map((f,i)=>`<button aria-label="Image ${i+1} of ${all.length}"></button>`).join('')}</div><span>Click an image to enlarge it</span></div></div>`};
+$('#plist').innerHTML=P.map((p,k)=>`<article class="proj glass rv${k===0||k===P.length-1?' home':' more'}"><div class="ptext"><h3>${esc(p.t)}</h3><p class="result">${p.res}</p><dl class="pbm"><div><dt>Problem</dt><dd>${esc(p.p)}</dd></div><div><dt>Built</dt><dd>${esc(p.b)}</dd></div></dl>${p.note?`<p class="note" style="margin:0">${esc(p.note)}</p>`:''}<div class="tags">${p.tags.map(x=>`<span>${esc(x)}</span>`).join('')}</div></div>${k===0||k===P.length-1?media(p):''}${slider(p)}</article>`).join('');
+const total=P.length,mb=$('#morebtn'),pl=$('#plist');
+const setMore=o=>{pl.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);mb.textContent=o?'See less':`See full project list (${total})`};setMore(false);
+mb.addEventListener('click',()=>{const o=!pl.classList.contains('open');setMore(o);(o?pl.querySelector('.proj'):$('#projects')).scrollIntoView({behavior:'smooth',block:'start'})});
+document.querySelectorAll('.slider').forEach(sl=>{const tr=sl.querySelector('.track'),n=tr.children.length,dots=[...sl.querySelectorAll('.dots button')];const cur=()=>Math.round(tr.scrollLeft/Math.max(tr.clientWidth,1));const go=i=>{i=(i+n)%n;tr.scrollTo({left:i*tr.clientWidth,behavior:'smooth'})};const mark=()=>{const c=cur();dots.forEach((d,i)=>d.setAttribute('aria-current',i===c))};sl.querySelector('.prev').addEventListener('click',()=>go(cur()-1));sl.querySelector('.next').addEventListener('click',()=>go(cur()+1));dots.forEach((d,i)=>d.addEventListener('click',()=>go(i)));tr.addEventListener('scroll',mark,{passive:true});tr.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(cur()+1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(cur()-1)}});mark();sl._go=go;sl._cur=cur;const pause=()=>{sl.dataset.t=Date.now()+8000};sl.addEventListener('pointerenter',()=>{sl.dataset.hold=1});sl.addEventListener('pointerleave',()=>{delete sl.dataset.hold});sl.addEventListener('focusin',()=>{sl.dataset.hold=1});sl.addEventListener('focusout',()=>{delete sl.dataset.hold});sl.addEventListener('click',pause);sl.addEventListener('touchstart',pause,{passive:true})});
+const onScreen=new Set(),sio=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?onScreen.add(e.target):onScreen.delete(e.target)),{threshold:.5});
+document.querySelectorAll('.slider').forEach(sl=>sio.observe(sl));
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(()=>{if(document.hidden||$('#lb').open)return;onScreen.forEach(sl=>{if(sl.dataset.hold||Date.now()<(+sl.dataset.t||0)||!sl.offsetParent)return;sl._go(sl._cur()+1)})},4000);
+$('#pubs').innerHTML=PUBS.map(([y,t,a,j,d,s])=>`<li class="glass rv"><div class="yr">${y}</div><div><div class="t">${esc(t)}${a.startsWith('T. Saha')?'<span class="badge">First author</span>':''}${s?`<span class="badge alt">${esc(s)}</span>`:''}</div><div class="m">${esc(a).replace('T. Saha','<b class="me">T. Saha</b>')} · <i>${esc(j)}</i>${d?` · <a href="https://doi.org/${d}" target="_blank" rel="noopener">DOI ↗</a>`:''}</div></div></li>`).join('');
+$('#talks').innerHTML=TALKS.map(c=>`<li class="conf glass rv"><h4>${esc(c.m)}</h4><p><span class="k">${esc(c.k)}:</span> ${esc(c.t)}</p><p class="meta"><span class="k">Location:</span> ${esc(c.loc)} &nbsp;|&nbsp; <span class="k">Date:</span> ${esc(c.d)}</p></li>`).join('');
+$('#service').innerHTML=SERV.map(([h,d])=>`<div class="vol glass rv"><h4>${esc(h)}</h4><p>${esc(d)}</p></div>`).join('');
+$('#skl').innerHTML=SK.map(([h,l])=>`<div class="card glass rv"><h3 style="margin-bottom:12px">${esc(h)}</h3><div class="tags">${l.map(x=>`<span>${esc(x)}</span>`).join('')}</div></div>`).join('');
+/* lightbox */
+const lb=$('#lb');
+document.addEventListener('click',e=>{const b=e.target.closest('button[data-src]');if(!b)return;$('#lbi').src=b.dataset.src;$('#lbi').alt=b.dataset.cap;$('#lbc').textContent=b.dataset.cap;if(lb.showModal)lb.showModal();});
+$('#lbx').addEventListener('click',()=>lb.close());
+lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+/* reveal + nav highlight */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const navL=[...document.querySelectorAll('nav .links a')];
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navL.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section[id]').forEach(el=>so.observe(el));
+}
+</script>
+</body>
+</html>
